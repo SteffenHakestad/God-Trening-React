@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
+import { Link} from "react-router-dom"
 
 
 export default function ServicesComponent() {
@@ -20,7 +20,7 @@ export default function ServicesComponent() {
                         <img alt="course icon" src='\assets\icons\icon-course.svg'></img>
                     </button>
                     
-                    <h1 id="thiscausesskew" >Kurs</h1>
+                    <h1>Kurs</h1>
                     </Link>
                 </div>
                 
@@ -31,7 +31,7 @@ export default function ServicesComponent() {
                     <button className='services-btn' onClick={() => serviceClick("Diet")}>
                         <img alt="diet icon" src='\assets\icons\icon-diet.svg'></img>
                     </button>
-                    <h1 id="thiscausesskew" >Kostveiledning</h1>
+                    <h1>Kostveiledning</h1>
                 </div>
 
                 <div className='v-services-divider'></div>
@@ -40,7 +40,7 @@ export default function ServicesComponent() {
                     <button className='services-btn' onClick={() => serviceClick("Presentation")}>
                         <img alt="diet icon" src='\assets\icons\icon-presentation.svg'></img>
                     </button>
-                    <h1 id="thiscausesskew" >Foredrag</h1>
+                    <h1>Foredrag</h1>
                 </div>
 
                 <div className='v-services-divider'></div>
@@ -49,7 +49,7 @@ export default function ServicesComponent() {
                     <button className='services-btn' onClick={() => serviceClick("Consultant")}>
                         <img alt="diet icon" src='\assets\icons\icon-consultant.svg'></img>
                     </button>
-                    <h1 id="thiscausesskew">Konsulenttjenseter</h1>
+                    <h1>Konsulenttjenseter</h1>
                 </div>
 
             </div>

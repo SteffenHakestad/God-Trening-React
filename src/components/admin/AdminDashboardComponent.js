@@ -14,6 +14,7 @@ export default function AdminDashboardComponent() {
     //State for new media post input fields
     const [headline, setHeadline] = useState("");
     const [mediaText, setMediaText] = useState("");
+    const [mediaImage, setMediaImage] = useState("");
 
     //State for new media post input field changes
     const handleHeadlineChange = (e) => {
@@ -22,8 +23,16 @@ export default function AdminDashboardComponent() {
     const handleMediaTextChange = (e) => {
         setMediaText(e.target.value);
     }
-
-
+    const handleMediaImageChange = (e) => {
+        const file = e.target.files[0];
+        setMediaImage(file);
+    }
+    //Ref for file input. HandleButtonClick clicks the file input button. Called from the styled button .upload-image-button
+    const fileInputRef = useRef(null);
+    const handleButtonClick = () => {
+        console.log("Button clicked")
+      fileInputRef.current.click();
+    };
 
     const expandInfo = (btn) => {
         switch(btn){
@@ -71,16 +80,21 @@ export default function AdminDashboardComponent() {
             </button>
 
 
-
+            {/* First collapse menu, handles new media posts. */}
             <div className='dashboard-collapse-container' id="collapse-1" ref={publishContainer}>
-                
                 <input className='input-field' name="headline-input" type="text" placeholder='Overskrift' value={headline} onChange={handleHeadlineChange} required></input>
-                <textarea className='input-field' name="message-input" type="text" placeholder='Skriv din melding her!' value={mediaText} onChange={handleMediaTextChange} required></textarea>
+                <textarea className='input-field' name="message-input" type="text" placeholder='Skriv inn hovedtekst for media innlegg!' value={mediaText} onChange={handleMediaTextChange} required></textarea>
+                <div className='image-upload-container'>
+                    <label htmlFor='media-image-upload'>Velg et bilde å laste opp</label>
+                    <input type='file' name='media-image-upload' accept='image/* video/*' ref={fileInputRef} value={mediaImage} onChange={handleMediaImageChange} style={{ display: "none" }}></input>
+                    <button className="upload-image-button" type="button" onClick={handleButtonClick}></button>
+                        {/*Gets the file text from the type="file" button*/}
+                        <div className="selected-file-text">
+                            {mediaImage ? mediaImage.name : "Ingen fil valgt"}
+                        </div>
 
+                </div>
                 <button className='std-btn'>Publisér Media Innlegg</button>
-
-
-
             </div>
             
             <button className='dashboard-collapse-btn' onClick={() => expandInfo("Upload")}>Last opp nye bilder til fremsiden
@@ -89,10 +103,14 @@ export default function AdminDashboardComponent() {
             </button>
             <div className='dashboard-collapse-container' id="collapse-2" ref={uploadContainer}>Second Menu</div>
             
+
+
+
             <button className='dashboard-collapse-btn' onClick={() => expandInfo("Support")}>Teknisk Support
                 <img alt="expand icon" src='/assets/icons/icon-right-arrow.svg' className='expand-icon' style={{ display: supportState === "expand" ? "block" : "none" }}></img>
                 <img alt="collapse icon" src='/assets/icons/icon-down-arrow.svg' className='collapse-icon' style={{ display: supportState === "collapse" ? "block" : "none" }}></img>
             </button>
+
             <div className='dashboard-collapse-container' id="collapse-3" ref={supportContainer}>
                 <div>For teknisk support ta kontakt med:</div>
                 <div id="collapse-3-container">
