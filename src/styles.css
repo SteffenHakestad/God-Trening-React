@@ -5,6 +5,15 @@
     font-family: 'khand', sans-serif;
     text-decoration: none;
 }
+#under-construction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+#under-construction img{
+    object-fit:contain;
+}
 body{
     background-color: white;
 }
