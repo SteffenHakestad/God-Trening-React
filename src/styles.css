@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'khand', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     text-decoration: none;
 }
 #under-construction{
@@ -23,6 +23,10 @@ body{
     --light-gray: #D7D7D7;
     --primary-color: #BEDC84;
     --secondary-color: #FFCFC2;
+    --tirtiary-color: #977AAF;
+}
+a:visited{
+    color: white;
 }
 /*This container is placeholder for navbar since navbar is fixed*/
 .container{
@@ -299,6 +303,45 @@ body{
     font-size: 50px;
 }
 /*End of multi page Header*/
+/*Start of multi page Footer*/
+#footer-container{
+    display: flex;
+    margin-top: 3rem;
+    background-color: var(--tirtiary-color);
+}
+.footer-inner-container{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+
+    color: white;
+    text-decoration: none;
+    text-align: left;
+}
+.footer-inner-container h1{
+    font-size: 2.5rem;
+    font-family: "Bellota";
+}
+.footer-inner-container a{
+    text-align: left;
+    font-size: 2rem;
+}
+.horizontal-footer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: .5rem;
+}
+
+.h-footer-divider{
+    width: 100px;
+    height: 5px;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    margin: .5rem 0rem .5rem 0rem;
+}
+/*End of multi page Footer*/
+
 
 
 
@@ -323,6 +366,11 @@ body{
     transition: .5s;
 }
 
+.right-arrow-icon{
+    width: 2rem;
+    height: 2rem;
+    margin-right: .5rem;
+}
 
 /*End of multi page elements*/
 

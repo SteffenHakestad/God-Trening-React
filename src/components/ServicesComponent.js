@@ -15,7 +15,7 @@ export default function ServicesComponent() {
                 <div id="services-container">
                 
                 <div className='services-btn-container'>
-                    <Link to="/home">
+                    <Link to="/course">
                     <button className='services-btn' onClick={() => serviceClick("Course")}>
                         <img alt="course icon" src='\assets\icons\icon-course.svg'></img>
                     </button>
@@ -24,32 +24,41 @@ export default function ServicesComponent() {
                     </Link>
                 </div>
                 
-
                 <div className='v-services-divider'></div>
 
                 <div className='services-btn-container'>
-                    <button className='services-btn' onClick={() => serviceClick("Diet")}>
-                        <img alt="diet icon" src='\assets\icons\icon-diet.svg'></img>
-                    </button>
-                    <h1>Kostveiledning</h1>
-                </div>
+                    <Link to="/presentation">
 
-                <div className='v-services-divider'></div>
-
-                <div className='services-btn-container'>
                     <button className='services-btn' onClick={() => serviceClick("Presentation")}>
                         <img alt="diet icon" src='\assets\icons\icon-presentation.svg'></img>
                     </button>
                     <h1>Foredrag</h1>
+                    </Link>
                 </div>
 
                 <div className='v-services-divider'></div>
 
                 <div className='services-btn-container'>
+                    <Link to="/dieting">
+
+                    <button className='services-btn' onClick={() => serviceClick("Diet")}>
+                        <img alt="diet icon" src='\assets\icons\icon-diet.svg'></img>
+                    </button>
+                    <h1>Kostveiledning</h1>
+                    </Link>
+                </div>
+
+
+                <div className='v-services-divider'></div>
+
+                <div className='services-btn-container'>
+                    <Link to="/consultant">
+
                     <button className='services-btn' onClick={() => serviceClick("Consultant")}>
                         <img alt="diet icon" src='\assets\icons\icon-consultant.svg'></img>
                     </button>
                     <h1>Konsulenttjenseter</h1>
+                    </Link>
                 </div>
 
             </div>
