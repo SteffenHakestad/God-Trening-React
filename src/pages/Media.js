@@ -21,8 +21,11 @@ export default function Media() {
             Display2={"none"}
         />
         <MediaPost 
-            MediaTitle={"Hello"}
+            MediaTitle={"Media Innlegg"}
             MediaText={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam molestie tincidunt lectus, et ultrices est ornare euismod. Aliquam erat volutpat. Maecenas imperdiet hendrerit nisi in condimentum. In suscipit vel felis et gravida. Integer pulvinar urna orci, id suscipit diam interdum eu."}
+            ImagePath1={'/assets/images/UnderConstruction.png'}
+            ImagePath2={'/assets/images/UnderConstruction.png'}
+            VideoPath={"/assets/videos/CuberRender.mp4"}
         />
         <Footer />
         </>

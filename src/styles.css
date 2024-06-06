@@ -333,7 +333,18 @@ a:visited{
 #footer-container{
     display: flex;
     margin-top: 3rem;
+    justify-content: space-around;
+    flex-direction: row;
     background-color: var(--tirtiary-color);
+    padding: var(--container-margin);
+}
+#footer-logo-container{
+    max-width: 20rem;
+    font-size: 2rem;
+    margin: 2rem;
+}
+#footer-logo-container img{
+    max-width: 20rem;
 }
 .footer-inner-container{
     display: flex;
@@ -356,7 +367,12 @@ a:visited{
     display: flex;
     justify-content: left;
     align-items: center;
-    margin-top: .5rem;
+    margin-top: 1rem;
+}
+.horizontal-footer a{
+    color: white;
+    font-size: 2rem;
+
 }
 
 .h-footer-divider{
@@ -404,30 +420,42 @@ a:visited{
     align-items: center;
     flex-direction: column;
     padding: var(--container-margin);
-    border: var(--dark-gray) 1px solid;
 
-    background-color: red;
 }
 .media-container h1{
-    font-size: 3rem;
+    font-size: 3.5rem;
     color: var(--dark-gray);
     font-family: "Bellota";
+    margin-top: 1rem;
 }
 .media-container p{
     font-size: 2rem;
     color: var(--dark-gray);
 }
+.media-attachment-container{
+    display: flex;
+    margin-top: 1.5rem;
+    background-color: red;
+    width: 100%;
+    max-height: 300px;
+}
 .media-image{
     object-fit: contain;
     width: 100%;
-    max-width: 500px;
+    max-width: 400px;
+    max-height: 300px;
+}
+.media-video{
+    width: 100%;
+    max-width: 400px;
+    max-height: 300px;
 }
 .h-media-divider{
-    width: 100%;
+    width: 80%;
     height: 5px;
     background: var(--primary-color);
     border-radius: 1rem;
-    margin: 1rem 0rem 1rem 0rem;
+    margin: 2rem 0rem 2rem 0rem;
 }
 /*End of multi page elements*/
 
