@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom"
 
 
 export default function Footer() {
@@ -10,14 +11,14 @@ export default function Footer() {
         <div id="footer-container">
 
                 <div id="footer-logo-container">
-                    <button href='/home'>
-                        <img alt="logo" src='/assets/images/NewLogoText.png' className='footer-logo' ></img>
+                    <Link to="/home">
 
-                    </button>
+                            <img alt="logo" src='/assets/images/NewLogoText.png' className='footer-logo' ></img>
+                    </Link>
 
                     <div className='horizontal-footer'>
                         <img alt="full right arrow" src='/assets/icons/icon-phone.svg' className='right-arrow-icon'></img>
-                        <a>922 26 557</a>
+                        <div>922 26 557</div>
                     </div>
                     <div className='horizontal-footer'>
                         <img alt="full right arrow" src='/assets/icons/icon-email.svg' className='right-arrow-icon'></img>

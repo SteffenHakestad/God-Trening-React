@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ServicesSidebar from '../components/ServicesSideBarComponent';
 
 export default function Presentation() {
 
@@ -19,6 +20,7 @@ export default function Presentation() {
         Display1={"block"}
         Display2={"block"}
         />
+        <ServicesSidebar />
         <Footer />
         </>
 

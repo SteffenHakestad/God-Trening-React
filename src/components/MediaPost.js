@@ -31,8 +31,6 @@ export default function MediaPost({MediaTitle, MediaText, ImagePath1, ImagePath2
             type="video/mp4"
             controls
             >
-            
-            
             </video>
         </div>
 
