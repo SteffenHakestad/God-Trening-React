@@ -770,6 +770,7 @@ a:visited{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding : var(--container-margin);
 }
 #admin-container h1{
     font-size: 3rem;
@@ -790,6 +791,7 @@ a:visited{
     display: flex;
     justify-content: center;
     margin: var(--container-margin);
+    width: 100%;
 }
 #admin-login-container form{
     display: flex;
@@ -924,10 +926,6 @@ a:visited{
 }
 
 
-
-
-
-
 #collapse-3-container{
    display: flex;
    justify-content: left;
@@ -937,6 +935,20 @@ a:visited{
 #collapse-3-container img{
     margin-right: 1rem;
 }
+.selected-file-text{
+    font-size: .5rem;
+}
+.upload-image-button{
+    display: flex;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 1rem;
+    height: 5rem;
+    width: 5rem;
+}
+
 
 /*End of Admin Dashboard*/
 /*END OF ADMIN PAGE*/

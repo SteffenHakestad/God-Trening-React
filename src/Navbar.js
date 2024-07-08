@@ -9,11 +9,11 @@ export default function Navbar() {
         <Link to="/home" id="navbar-title">God Trening</Link>
         {/*Links from navbar to all pages on app*/}
         <ul className="navbar-link-list">
-            <CustomLink to="/home" className="navbar-link">Home*</CustomLink>
+            <CustomLink to="/home" className="navbar-link"> Temp Home*</CustomLink>
             <CustomLink to="/services" className="navbar-link">Tjenester</CustomLink>
             <CustomLink to="/media" className="navbar-link">Media</CustomLink>
             <CustomLink to="/contact" className="navbar-link">Kontakt</CustomLink>
-            <CustomLink to="/admin" className="navbar-link">Admin*</CustomLink>
+            <CustomLink to="/admin" className="navbar-link">Temp Admin*</CustomLink>
 
 
 
