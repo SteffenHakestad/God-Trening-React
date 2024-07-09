@@ -50,6 +50,14 @@ export default function ServicesSideBar() {
 
         </div>
         <div className="bottom-sidebar-container">
+          <img alt="book a service" src='/assets/images/StockPhoto.jpg'></img>
+          <h1 className="sidebar-header">Tjenester</h1>
+          <div>Du kan bestille følgende tjeneste ved å ta kontakt på:</div>
+          <div className="horizontal-container">
+                    <img alt="phone icon" src='/assets/icons/icon-phone.svg'></img>
+                    <div>468 95 371 - Steffen Hakestad (Utvikler)</div>
+          </div>
+          
 
         </div>
 
