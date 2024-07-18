@@ -1,25 +1,28 @@
-import React from 'react'
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ServicesSidebar from '../components/ServicesSideBarComponent';
 
 
-export default function Course() {
+export default function Consultant() {
 
 
 
     return (
         <>
         <Header 
-        HeaderHeadline={"Kurs"}
+        HeaderHeadline={"Konsulenttjenester"}
         HeaderLink={"God Trening"}
         HeaderLink2={"Tjenester"}
-        HeaderLink3={"Kurs"}
+        HeaderLink3={"Konsulenttjenester"}
         HeaderAnchor={"/"}
         HeaderAnchor2={"/services"}
-        HeaderAnchor3={"/course"}
+        HeaderAnchor3={"/consultant"}
         Display1={"block"}
         Display2={"block"}
         />
+        <ServicesSidebar />
+
         <Footer />
         </>
 

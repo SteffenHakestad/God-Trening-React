@@ -35,7 +35,8 @@ export default function ContactMailToComponent() {
             message: message
         });
     
-        const url = "https://script.google.com/macros/s/AKfycbzge2sjv5Q9rIgJVpYPKawrP9mUT7GiN3-zYOddXzIo9tlyOczQgYRXrqxooW-mOSnf/exec";
+        const url = "https://script.google.com/macros/s/AKfycbx6EZerkP8AIWN6m5BsP47UIyBKeVjO8kRgAOdNLfHSqzwzt_GmWZWvWjgpExTLHP-Q/exec"
+        
     
         try {
             const response = await fetch(url, {
@@ -47,6 +48,7 @@ export default function ContactMailToComponent() {
             });
     
             if (response.ok) {
+                
                 const jsonResponse = await response.json();
                 console.log(jsonResponse);
                 console.log("Mail sent successfully!");
@@ -58,7 +60,22 @@ export default function ContactMailToComponent() {
         }
     };
     
+    
     return (
+        <>
+
+        <div className='contact-header'>
+            <h1>Kontakt</h1>
+            <div className='horizontal-footer'>
+                <img alt="phone icon" src='/assets/icons/icon-phone.svg' className='contact-header-icon'></img>
+                <div>922 26 557</div>
+            </div>
+            <div className='horizontal-footer'>
+                <img alt="email icon" src='/assets/icons/icon-email.svg' className='contact-header-icon'></img>
+                <div>Godtrening@online.no</div>
+            </div>
+        </div>
+
         <div className="mailto-container">
             <h1>Bestill tjenester eller kontakt meg!</h1>
             <div className='divider'></div>
@@ -77,6 +94,8 @@ export default function ContactMailToComponent() {
                     </div>
                 </form>
         </div>
+        </>
+
     );
 }
 

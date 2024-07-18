@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import ServicesSidebar from '../components/ServicesSideBarComponent';
 
 
 export default function Diet() {
@@ -20,6 +21,8 @@ export default function Diet() {
         Display1={"block"}
         Display2={"block"}
         />
+        <ServicesSidebar />
+
         <Footer />
         </>
 

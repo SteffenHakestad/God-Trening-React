@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
+import axios from 'axios';
 
 export default function AdminDashboardComponent() {
     //Get ref to DOM elements
     const publishContainer = useRef(null);
     const uploadContainer = useRef(null);
     const supportContainer = useRef(null);
+    const previewContainer = useRef(null);
 
     //State for collapse/expand buttons
     const [publishState, setPublishState] = useState("expand");
@@ -16,6 +18,13 @@ export default function AdminDashboardComponent() {
     const [mediaText, setMediaText] = useState("");
     const [mediaImage, setMediaImage] = useState(null);
 
+    //State for image preview
+    const [previewUrl, setPreviewUrl] = useState(null);
+
+    //State for success/failure popup
+    const [isSuccessPopupOpen, setSuccessPopupOpen] = useState(false);
+    const [isFailurePopupOpen, setFailurePopupOpen] = useState(false);
+
     //State for new media post input field changes
     const handleHeadlineChange = (e) => {
         setHeadline(e.target.value);
@@ -26,6 +35,12 @@ export default function AdminDashboardComponent() {
     const handleMediaImageChange = (e) => {
         const file = e.target.files[0];
         setMediaImage(file);
+
+        if (file) {
+            previewContainer.current.style.display = "block";
+            const url = URL.createObjectURL(file);
+            setPreviewUrl(url);
+        }
     }
     //Ref for file input. HandleButtonClick clicks the file input button. Called from the styled button .upload-image-button
     const fileInputRef = useRef(null);
@@ -33,6 +48,14 @@ export default function AdminDashboardComponent() {
       fileInputRef.current.click();
     };
 
+
+
+    //Function to remove seleceted image and hide the image preview
+    const removeSelectedImage = () => {
+        setMediaImage(null);
+        setPreviewUrl(null);
+        previewContainer.current.style.display = "none";
+    }
     const expandInfo = (btn) => {
         switch(btn){
             case "Publish":
@@ -68,13 +91,49 @@ export default function AdminDashboardComponent() {
         supportContainer.current.style.display = "none";
     }, []);
 
-    const HandleMediaSubmit = (e) => {
-        e.preventDefault();
-        console.log("Headline: ", headline);
-        console.log("Media Text: ", mediaText);
-        console.log("Media Image: ", mediaImage);
-    }
 
+
+    //Function to handle media post submit to DB
+    const HandleMediaSubmit = async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData();
+        formData.append('headline', headline);
+        formData.append('mediaText', mediaText);
+        formData.append('image', mediaImage);
+
+        try {
+            const response = await axios.post('http://localhost:3001/api/posts', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            console.log('Post created:', response.data);
+
+            handleSuccess();
+        } catch (error) {
+            console.error('There was an error creating the post!', error);
+            handleFailure();
+        }
+    };
+
+    //Trigger success/failure popup based on post status
+    const handleSuccess = () => {
+        setSuccessPopupOpen(true);
+        setHeadline("");
+        setMediaText("");
+        setMediaImage(null);
+        setPreviewUrl(null);
+        previewContainer.current.style.display = "none";
+    };
+    const handleFailure = () => {
+        setFailurePopupOpen(true);
+    };
+    // Close popup overlay
+    const handlePopupClose = () => {
+        setSuccessPopupOpen(false);
+        setFailurePopupOpen(false);
+    };
 
     return (
         <div id="admin-dashboard">
@@ -90,22 +149,32 @@ export default function AdminDashboardComponent() {
             {/* First collapse menu, handles new media posts. */}
             <div className='dashboard-collapse-container' id="collapse-1" ref={publishContainer}>
                 <form onSubmit={HandleMediaSubmit}>
-                    <input className='input-field' name="headline-input" type="text" placeholder='Overskrift' value={headline} onChange={handleHeadlineChange} required></input>
+                    <input className='input-field' name="headline-input" type="text" placeholder='Overskrift' value={headline} onChange={handleHeadlineChange} maxLength="50" required></input>
                     <textarea className='input-field' name="message-input" type="text" placeholder='Skriv inn hovedtekst for media innlegg!' value={mediaText} onChange={handleMediaTextChange} required></textarea>
                         <div className='image-upload-container'>
-                            <label htmlFor='media-image-upload'>Velg et bilde å laste opp</label>
+                            <label htmlFor='media-image-upload'>Velg et bilde eller video å laste opp</label>
                             <input type='file' name='media-image-upload' accept='image/* video/*' ref={fileInputRef} onChange={handleMediaImageChange} style={{ display: "none" }}></input>
-                            <button className="upload-image-button std-btn" type="button" onClick={handleButtonClick}>
-                                <img alt="expand icon" src='/assets/icons/icon-upload-image.svg'></img>
-                            </button>
+                            
+                            <div className='selected-image-container'>
+                                <button className="upload-image-button std-btn" type="button" onClick={handleButtonClick}>
+                                    <img alt="expand icon" src='/assets/icons/icon-upload-image.svg'></img>
+                                </button>
+                                <div className='preview-upload-image-container' ref={previewContainer} style={{ display: "none" }}>
+                                    <button className="remove-image-button" type="button" onClick={removeSelectedImage}>
+                                        <img src='/assets/icons/icon-x.svg' alt='remove-selected'></img>
+                                    </button>
+                                    {previewUrl && <img src={previewUrl} className='preview-upload-image' alt="Preview" />}
+
+                                </div>
+                            </div>
+
                             {/*Gets the file text from the type="file" button*/}
                             <div className="selected-file-text">
-                                {mediaImage ? mediaImage.name : "Ingen fil valgt" }
+                                {mediaImage ? mediaImage.name : "Ingen fil valgt"}
                             </div>
                         </div>
                     <button type="submit" className='std-btn'>Publisér Media Innlegg</button>
                 </form>
-
             </div>
             
             <button className='dashboard-collapse-btn' onClick={() => expandInfo("Upload")}>Last opp nye bilder til fremsiden
@@ -139,7 +208,36 @@ export default function AdminDashboardComponent() {
                 </div>
   
             </div>
-        </div>
+
+            {/* Media Post Success Popup */}
+            {isSuccessPopupOpen && (
+                <div className="success-failure-popup-overlay">
+                    <div className="success-failure-container">
+                        <div className='close-success-failure-popup-btn-container'>
+                            <button className="close-success-failure-popup-btn" onClick={handlePopupClose}>
+                                <img className="close-popup-icon" src={process.env.PUBLIC_URL + "/assets/icons/icon-x.svg"} alt="Exit-Icon" />
+                            </button>
+                        </div>
+                        <p>Media post lastet opp!</p>
+                    </div>
+                </div>
+            )}
+            {/* Media Post Failure Popup */}
+            {isFailurePopupOpen && (
+                <div className="success-failure-popup-overlay">
+                    <div className="success-failure-container">
+                        <div className='close-success-failure-popup-btn-container'>
+                            <button className="close-success-failure-popup-btn" onClick={handlePopupClose}>
+                                <img className="close-popup-icon" src={process.env.PUBLIC_URL + "/assets/icons/icon-x.svg"} alt="Exit-Icon" />
+                            </button>
+                        </div>
+                        <p>Det var et problem med å poste media innlegg.</p>
+                    </div>
+                </div>
+            )}
+        </div> 
+
+
     );
 }
 
