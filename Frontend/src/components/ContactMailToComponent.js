@@ -66,12 +66,12 @@ export default function ContactMailToComponent() {
 
         <div className='contact-header'>
             <h1>Kontakt</h1>
-            <div className='horizontal-footer'>
-                <img alt="phone icon" src='/assets/icons/icon-phone.svg' className='contact-header-icon'></img>
+            <div className='contact-header-container'>
+                <img alt="phone icon" src='/assets/icons/icon-circle-phone.svg' className='contact-header-icon'></img>
                 <div>922 26 557</div>
             </div>
-            <div className='horizontal-footer'>
-                <img alt="email icon" src='/assets/icons/icon-email.svg' className='contact-header-icon'></img>
+            <div className='contact-header-container'>
+                <img alt="email icon" src='/assets/icons/icon-circle-mail.svg' className='contact-header-icon'></img>
                 <div>Godtrening@online.no</div>
             </div>
         </div>
@@ -88,18 +88,15 @@ export default function ContactMailToComponent() {
                     </div>
                     <div id='contact-message-container'>
                         <textarea className='input-field' name="message-input" type="text" placeholder='Skriv din melding her!' value={message} onChange={handleMessageChange} required></textarea>
-                    </div>
-                    <div id="btn-container">
                         <input className="submit-mail-btn std-btn" type="submit" value="Send"></input>
                     </div>
+
                 </form>
         </div>
         </>
 
     );
 }
-
-
 
 
 //Code to send formdata to apps sscript, this is using xhr instrad of fetch
