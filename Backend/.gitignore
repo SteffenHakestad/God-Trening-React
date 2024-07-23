@@ -8,6 +8,9 @@
 # testing
 /coverage
 
+# Include uploads folder but not any files generated inside
+!uploads/.gitkeep 
+
 # production
 /build
 # dotenv environment variables file
