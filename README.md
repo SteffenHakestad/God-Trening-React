@@ -1,16 +1,18 @@
 How to start application for dev purposes
 
-cd Frontend
+    -cd Frontend
 
-npm install
+    -npm install
 
-npm start
+    -npm start
 
-cd Backend
+---
 
-npm install
+    -cd Backend
 
-nodemon Server.js
+    -npm install
+
+    -nodemon Server.js
 
 Open http://localhost:3000/ to view the app in your browser.
 
