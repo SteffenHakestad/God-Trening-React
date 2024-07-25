@@ -32,6 +32,7 @@ export default function Media() {
                         MediaTitle={post.headline}
                         MediaText={post.mediaText}
                         ImagePath={`${post.image}`}
+                        //ImagePath={post.image ? `uploads/${post.image}` : null}
                     />
                 ))}
             </div>

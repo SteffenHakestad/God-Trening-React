@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function AdminDashboardComponent() {
   //Get ref to DOM elements
@@ -42,6 +43,7 @@ export default function AdminDashboardComponent() {
       setPreviewUrl(url);
     }
   };
+
   //Ref for file input. HandleButtonClick clicks the file input button. Called from the styled button .upload-image-button
   const fileInputRef = useRef(null);
   const handleButtonClick = () => {
@@ -54,6 +56,8 @@ export default function AdminDashboardComponent() {
     setPreviewUrl(null);
     previewContainer.current.style.display = "none";
   };
+
+  //Function to expand/collapse the different collapse menus based on user input.
   const expandInfo = (btn) => {
     switch (btn) {
       case "Publish":
@@ -132,6 +136,8 @@ export default function AdminDashboardComponent() {
   const handleFailure = () => {
     setFailurePopupOpen(true);
   };
+
+
   // Close popup overlay
   const handlePopupClose = () => {
     setSuccessPopupOpen(false);
@@ -329,7 +335,9 @@ export default function AdminDashboardComponent() {
               </button>
             </div>
             <p>Media post lastet opp!</p>
-            <button className="std-btn">Gå til Media siden</button>
+            <Link to="/media">
+              <button className="std-btn">Gå til Media siden</button>
+            </Link>
           </div>
         </div>
       )}

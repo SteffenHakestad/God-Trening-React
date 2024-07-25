@@ -335,6 +335,7 @@ a:visited{
     margin-top: 3rem;
     justify-content: space-around;
     flex-direction: row;
+    flex-wrap: wrap;
     background-color: var(--tirtiary-color);
     padding: var(--container-margin);
 }
@@ -346,18 +347,36 @@ a:visited{
 #footer-logo-container img{
     max-width: 20rem;
 }
+
+#footer-link-container{
+    display: flex;
+    flex-direction: row;
+}
+@media (max-width: 650px) {
+    #footer-link-container {
+        flex-direction: column;
+    }
+}
+
 .footer-inner-container{
     display: flex;
     flex-direction: column;
     margin: 2rem;
-
-    color: white;
-    text-decoration: none;
-    text-align: left;
 }
 .footer-inner-container h1{
     font-size: 2.5rem;
     font-family: "Bellota";
+    color: white;
+    text-decoration: none;
+    text-align: left;
+}
+@media (max-width: 650px) {
+    .footer-inner-container h1 {
+        font-size: 2rem;
+    }
+    .horizontal-footer a {
+        font-size: 5rem;
+    }
 }
 .footer-inner-container a{
     text-align: left;
@@ -373,7 +392,11 @@ a:visited{
 .horizontal-footer a{
     color: white;
     font-size: 2rem;
-
+}
+@media (max-width: 650px) {
+    .horizontal-footer a {
+        font-size: 1.5rem;
+    }
 }
 
 .h-footer-divider{
@@ -415,64 +438,6 @@ a:visited{
     margin-right: .5rem;
 }
 
-.media-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: var(--container-margin);
-
-}
-.media-container h1{
-    font-size: 3.5rem;
-    color: var(--dark-gray);
-    
-    font-family: "Bellota";
-    margin-top: 1rem;
-}
-
-.media-text-content{
-    display: flex;
-    justify-content: left;
-    text-align: left;
-    font-size: 2rem;
-    color: var(--dark-gray);
-}
-.media-container a:visited{
-    color: var(--dark-gray);
-}
-.media-attachment-container{
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 1.5rem;
-    background-color: red;
-    width: 100%;
-    max-height: 500px;
-}
-.media-image{
-    
-    object-fit: contain;
-    width: 100%;
-}
-.media-video{
-    width: 100%;
-    max-width: 400px;
-    max-height: 300px;
-}
-.h-media-divider{
-    width: 80%;
-    height: 5px;
-    background: var(--primary-color);
-    border-radius: 1rem;
-    margin: 2rem 0rem 2rem 0rem;
-}
-.h-media-divider-small{
-    width: 20%;
-    height: 5px;
-    background: var(--primary-color);
-    border-radius: 1rem;
-    margin: 2rem 0rem 5rem 0rem;
-}
 /*End of multi page elements*/
 
 
@@ -480,20 +445,84 @@ a:visited{
 /* Start of image slider. Home page*/
 .sliding-images-outer-container{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5760px;
-    background-color: red;
+    background-color: yellow;
     max-height: 1080px;
-    height: 900px;
-
+    height: 800px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    transform: translateX(-1920px);
+    
 }
 
 .slide img{
     max-width: 1920px;
-    max-height: 900px;
+    min-width: 1920px;
+    max-height: 800px;
 }
 /* End of image slider. Home page*/
+/*Start of "About me*/
+.about-outer-container{
+    display: flex;
+    align-items: center;
+    
+    background-color: white;
+    width: 100%;
+    height: 25rem;
+    margin-top: 4rem;
+}
+.about-inner-container{
+    display: flex;
+    align-items: center;
+    background-color: var(--light-gray);
+
+    width: 100%;
+    height: 20rem;
+    color: var(--dark-gray);
+}
+.about-inner-container h1{
+    text-align: right;
+    font-size: 4rem;
+    font-family: "Bellota";
+    margin-bottom: 1.5rem;
+}
+.about-inner-container p {
+    font-size: 1.5rem;
+    margin-left: 5rem;
+}
+.about-text-container{
+    padding: 1rem 4rem 0rem 3rem;
+    height: 100%;
+    width: 60%;
+}
+.about-image-container{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    margin-left: 10rem;
+
+}
+.image-shell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray);
+    max-height: 25rem;
+    height: 25rem;
+    width: 19rem;
+    border-radius: 10rem;
+
+}
+.about-image-container img{
+    top: 0;
+    left: 0;
+    max-height: 24rem;
+    height: 24rem;
+    width: 18rem;
+    border-radius: 10rem;
+
+}
+/*End of "About me*/
 
 /*START OF CONTACT PAGE*/
 .contact-header{
@@ -632,6 +661,15 @@ a:visited{
     margin: 5rem 0rem 5rem 0rem;
     width: 100%;
     gap: 2rem;
+
+}
+
+#services-headline{
+    font-family: "Bellota";
+    color: var(--dark-gray);
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+
 }
 .services-btn-container{
     display: flex;
@@ -644,6 +682,8 @@ a:visited{
     color: var(--dark-gray);
     font-size: 2rem;
     text-align: center;
+
+
 }
 .services-btn{
     background-color: var(--primary-color);
@@ -656,6 +696,10 @@ a:visited{
 }
 .services-btn:hover{
     background-color: var(--secondary-color);
+    transition: .5s;
+}
+.services-btn:not(:hover) {
+    background-color: var(--primary-color);
     transition: .5s;
 }
 
@@ -799,7 +843,74 @@ a:visited{
 
 }
 /*END OF SERVICES PAGE*/
+/*Start of Media component*/
 
+.media-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: var(--container-margin);
+
+}
+
+.media-container h1 {
+    font-size: 3.5rem;
+    color: var(--dark-gray);
+
+    font-family: "Bellota";
+    margin-top: 1rem;
+}
+
+.media-text-content {
+    display: flex;
+    justify-content: left;
+    text-align: left;
+    font-size: 2rem;
+    color: var(--dark-gray);
+}
+
+.media-container a:visited {
+    color: var(--dark-gray);
+}
+
+.media-attachment-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+    background-color: red;
+    width: 100%;
+    max-height: 500px;
+}
+
+.media-image {
+    object-fit: contain;
+    width: 100%;
+}
+
+.media-video {
+    width: 100%;
+    max-width: 400px;
+    max-height: 300px;
+}
+
+.h-media-divider {
+    width: 80%;
+    height: 5px;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+.h-media-divider-small {
+    width: 20%;
+    height: 5px;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    margin: 2rem 0rem 5rem 0rem;
+}
+
+/*End of Media component*/
 
 
 

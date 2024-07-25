@@ -11,9 +11,10 @@ export default function ServicesComponent() {
     return (
         <>
         <div id="services-outer-container">
+        <h1 id='services-headline'>Tjenestene til Guri Brekke</h1>
+
             <div className='h-services-divider'></div>
                 <div id="services-container">
-                
                 <div className='services-btn-container'>
                     <Link to="/course">
                     <button className='services-btn' onClick={() => serviceClick("Course")}>
