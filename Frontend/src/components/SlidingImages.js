@@ -1,36 +1,62 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 export default function SlidingImages() {
-  return (
-    <>
-      <div className="sliding-images-outer-container">
-        <div className="slide" id="slide-1">
-          <img
-            src={
-              process.env.PUBLIC_URL + "/assets/images/slidingImages/Slide1.png"
-            }
-            alt="Slide-1"
-          />
-        </div>
-        <div className="slide" id="slide-2">
-          <img
-            src={
-              process.env.PUBLIC_URL + "/assets/images/slidingImages/Slide2.png"
-            }
-            alt="Slide-2"
-          />
-        </div>
-        <div className="slide" id="slide-3">
-          <img
-            src={
-              process.env.PUBLIC_URL + "/assets/images/slidingImages/Slide3.png"
-            }
-            alt="Slide-3"
-          />
-        </div>
-      </div>
-    </>
-  );
+	const [position, setPosition] = useState(0);
+	const [currentImage, setCurrentImage] = useState();
+
+	const Slide = (direction) => {
+		if (direction === "next") {
+			setPosition(position - 1920);
+		} else if (direction === "previous") {
+			setPosition(position + 1920);
+		}
+	};
+
+	return (
+		<>
+			<div className="carousel-wrapper">
+				<button className="prev-button" onClick={() => Slide("previous")}>
+					&#10094;
+				</button>
+				<div
+					className="carousel-container"
+					style={{ transform: `translateX(${position}px)` }}>
+					<div className="sliding-images-outer-container">
+						<div className="slide" id="slide-1">
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"/assets/images/slidingImages/Slide1.png"
+								}
+								alt="Slide-1"
+							/>
+						</div>
+						<div className="slide" id="slide-2">
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"/assets/images/slidingImages/Slide2.png"
+								}
+								alt="Slide-2"
+							/>
+						</div>
+						<div className="slide" id="slide-3">
+							<img
+								src={
+									process.env.PUBLIC_URL +
+									"/assets/images/slidingImages/Slide3.png"
+								}
+								alt="Slide-3"
+							/>
+						</div>
+					</div>
+				</div>
+				<button className="next-button" onClick={() => Slide("next")}>
+					&#10095;
+				</button>
+			</div>
+		</>
+	);
 }
 
 // const SlidingImages = () => {

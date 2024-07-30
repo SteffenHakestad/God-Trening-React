@@ -6,10 +6,7 @@ import Footer from "../components/Footer";
 export default function Home() {
   return (
     <>
-      {/* <SlidingImages /> */}
-      {/* <div id="under-construction">
-            <img  alt="under construction" src='\assets\images\UnderConstruction.png'></img>
-        </div> */}
+      <SlidingImages />
       <ServicesComponent />
       <div className="about-outer-container">
         <div className="about-inner-container">
@@ -22,17 +19,12 @@ export default function Home() {
               ornare quis, posuere ornare massa. Suspendisse quis orci
               hendrerit."
             </p>
+          </div>
+          <div className="about-image-container">
+            <div className="image-shell">
+              <img src="/assets/images/StockPhoto.jpg" alt="about me" />
             </div>
-            <div className="about-image-container">
-                <div className="image-shell">
-                    <img
-                    src="/assets/images/StockPhoto.jpg"
-                    alt="about me"
-                />
-                </div>
-
-            </div>
-
+          </div>
         </div>
       </div>
       <Footer />
