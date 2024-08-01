@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 export default function SlidingImages() {
 	const [position, setPosition] = useState(0);
-	const [currentImage, setCurrentImage] = useState();
 
 	const Slide = (direction) => {
 		if (direction === "next") {

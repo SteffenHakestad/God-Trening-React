@@ -328,6 +328,15 @@ a:visited{
     height: 2rem;
     fill: var(--dark-gray);
 }
+@media (max-width: 800px){
+    .header h1{
+        font-size: 6rem;
+    }
+    .header{
+        padding: 4rem;
+        margin-bottom: 3rem;
+    }
+}
 /*End of multi page Header*/
 /*Start of multi page Footer*/
 #footer-container{
@@ -442,6 +451,68 @@ a:visited{
 
 
 /*START OF HOME PAGE*/
+.hero-img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-height: 800px;
+    height: 800px;
+    
+}
+.hero-img-container img { 
+    mask-image: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgba(60, 255, 0, 0) 100%);
+
+}
+
+.hero-image-text-container{
+    margin-right: 50%;
+    margin-bottom: 20%;
+    position: absolute;
+    color: white;
+}
+.hero-image-text-container h1{
+    font-family: "Bellota";
+
+}
+#large-hero{
+    max-width: 1920px;
+}
+#medium-hero{
+    display: none;
+    max-width: 1000px;
+}
+#small-hero{
+    display: none;
+    max-width: 600px;
+}
+@media (max-width: 1000px){
+    #large-hero{
+        display: flex;
+    }
+}
+@media (max-width: 1000px){
+    #large-hero{
+        display: none;
+    }
+    #medium-hero{
+        display: flex;
+    }
+    #small-hero{
+        display: none;
+    }
+}
+@media (max-width: 600px){
+    #large-hero{
+        display: none;
+    }
+    #medium-hero{
+        display: none;
+    }
+    #small-hero{
+        display: flex;
+    }
+}
 /* Start of image slider. Home page*/
 .carousel-wrapper {
     position: relative;
@@ -467,8 +538,9 @@ a:visited{
 
 .slide img {
     max-width: 1920px;
-    min-width: 1920px;
     max-height: 800px;
+    background-size: cover;
+
 }
 
 button.prev-button, button.next-button {
@@ -666,6 +738,8 @@ button.prev-button:hover, button.next-button:hover {
 /*END OF CONTACT PAGE*/
 
 /*START OF SERVICES PAGE*/
+/*Start of Services Component*/
+
 #services-outer-container{
     display: flex;
     justify-content: center;
@@ -685,7 +759,6 @@ button.prev-button:hover, button.next-button:hover {
     width: 3px;
     background: var(--primary-color);
     border-radius: 1rem;
-
 }
 
 #services-container{
@@ -696,7 +769,6 @@ button.prev-button:hover, button.next-button:hover {
     margin: 5rem 0rem 5rem 0rem;
     width: 100%;
     gap: 2rem;
-
 }
 
 #services-headline{
@@ -714,13 +786,15 @@ button.prev-button:hover, button.next-button:hover {
     width: 150px;
 }
 .services-btn-container h1{
+    margin-top: .5rem;
     color: var(--dark-gray);
     font-size: 2rem;
     text-align: center;
-
-
 }
 .services-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--primary-color);
     border: var(--dark-gray) 1px solid;
     border-radius: 50%;
@@ -738,6 +812,58 @@ button.prev-button:hover, button.next-button:hover {
     transition: .5s;
 }
 
+
+@media (max-width: 1300px){
+    #services-headline{
+        font-size: 3rem;
+    }
+    .services-btn-container h1{
+        font-size: 1.5rem;
+    }
+    .services-btn{
+        max-height: 100px;
+        max-width: 100px;
+    }
+    .services-btn img{
+        max-height: 60px;
+        max-width: 60px;
+    }
+}
+@media (max-width: 800px){
+    #services-headline{
+        font-size: 2.5rem;
+    }
+    .services-btn-container h1{
+        font-size: 1rem;
+    }
+    .v-services-divider{
+        display: none;
+    }
+
+}
+@media (max-width: 600px){
+    .services-btn-container h1{
+        font-size: 1.5rem;
+    }
+    .v-services-divider{
+        display: none;
+    }
+    #services-container{
+        flex-direction: column;
+        margin: 2rem 0rem 2rem 0rem;
+        gap: 2rem;
+    }
+
+}
+@media (max-width: 400px){
+    #services-headline{
+        font-size: 1.5rem;
+    }
+    
+
+}
+/*End of Services Component*/
+/*Start of Services Sidebar Component*/
 .sidebar-container{
     display: flex;
     justify-content: left;
@@ -745,8 +871,6 @@ button.prev-button:hover, button.next-button:hover {
     margin-left: 3rem;
     max-width: 30%;
 }
-
-
 .top-sidebar-container{
     display: flex;
     justify-content: center;
@@ -820,9 +944,6 @@ button.prev-button:hover, button.next-button:hover {
 
 }
 
-
-
-
 .bottom-sidebar-container {
     display: flex;
     justify-content: center;
@@ -877,6 +998,8 @@ button.prev-button:hover, button.next-button:hover {
     margin-right: 1rem;
 
 }
+/*End of Services Sidebar Component*/
+
 /*END OF SERVICES PAGE*/
 /*Start of Media component*/
 
