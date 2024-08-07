@@ -1,4 +1,4 @@
-// import SlidingImages from "../components/SlidingImages";
+import HeroImageComponent from "../components/HeroImageComponent";
 import React from "react";
 import ServicesComponent from "../components/ServicesComponent";
 import Footer from "../components/Footer";
@@ -6,37 +6,7 @@ import Footer from "../components/Footer";
 export default function Home() {
 	return (
 		<>
-			<div className="hero-img-container" id="large-hero">
-				<div className="hero-image-text-container">
-					<h1>Big Headline 1</h1>
-				</div>
-				<img
-					src={process.env.PUBLIC_URL + "/assets/images/HeroImage1920x800.png"}
-					alt="Slide-1"
-				/>
-			</div>
-
-			<div className="hero-img-container" id="medium-hero">
-				<div className="hero-image-text-container">
-					<h1>Medium Headline 1</h1>
-				</div>
-				<img
-					src={process.env.PUBLIC_URL + "/assets/images/HeroImage1000x800.png"}
-					alt="Slide-1"
-				/>
-			</div>
-
-			<div className="hero-img-container" id="small-hero">
-				<div className="hero-image-text-container">
-					<h1>Small Headline 1</h1>
-				</div>
-				<img
-					src={process.env.PUBLIC_URL + "/assets/images/HeroImage600x800.png"}
-					alt="Slide-1"
-				/>
-			</div>
-
-			{/* <SlidingImages /> */}
+			<HeroImageComponent />
 			<ServicesComponent />
 			<div className="about-outer-container">
 				<div className="about-inner-container">

@@ -1,7 +1,7 @@
 import React from "react";
 import Linkify from "linkify-react";
 
-export default function MediaPost({ MediaTitle, MediaText, ImagePath }) {
+export default function MediaPost({ MediaTitle, MediaText, VideoPath }) {
 	return (
 		<>
 			<div className="media-container">
@@ -12,8 +12,14 @@ export default function MediaPost({ MediaTitle, MediaText, ImagePath }) {
 				</Linkify>
 
 				<div className="media-attachment-container">
-					{ImagePath && (
-						<img className="media-image" alt="media" src={`${ImagePath}`} />
+					{VideoPath && (
+						<video
+							className="media-video"
+							alt="media"
+							title="media-video"
+							src={VideoPath}
+							type="video/mp4"
+							controls></video>
 					)}
 				</div>
 				<div className="h-media-divider-small"></div>
