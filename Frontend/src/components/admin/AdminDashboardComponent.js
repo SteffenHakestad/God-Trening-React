@@ -15,7 +15,7 @@ export default function AdminDashboardComponent() {
 	//State for new media post input fields
 	const [headline, setHeadline] = useState("");
 	const [mediaText, setMediaText] = useState("");
-	const [mediaFile, setMediaFile] = useState(null);
+	const [mediaImage, setMediaImage] = useState(null);
 
 	//State for image preview
 	const [previewUrl, setPreviewUrl] = useState(null);
@@ -31,9 +31,9 @@ export default function AdminDashboardComponent() {
 	const handleMediaTextChange = (e) => {
 		setMediaText(e.target.value);
 	};
-	const handleMediaFileChange = (e) => {
+	const handleMediaImageChange = (e) => {
 		const file = e.target.files[0];
-		setMediaFile(file);
+		setMediaImage(file);
 
 		if (file) {
 			previewContainer.current.style.display = "block";
@@ -49,8 +49,8 @@ export default function AdminDashboardComponent() {
 	};
 
 	//Function to remove seleceted image and hide the image preview
-	const removeSelectedFile = () => {
-		setMediaFile(null);
+	const removeSelectedImage = () => {
+		setMediaImage(null);
 		setPreviewUrl(null);
 		previewContainer.current.style.display = "none";
 	};
@@ -92,7 +92,7 @@ export default function AdminDashboardComponent() {
 		const formData = new FormData();
 		formData.append("headline", headline);
 		formData.append("mediaText", mediaText);
-		formData.append("file", mediaFile);
+		formData.append("image", mediaImage);
 
 		try {
 			const response = await axios.post("/api/posts", formData, {
@@ -114,7 +114,7 @@ export default function AdminDashboardComponent() {
 		setSuccessPopupOpen(true);
 		setHeadline("");
 		setMediaText("");
-		setMediaFile(null);
+		setMediaImage(null);
 		setPreviewUrl(null);
 		previewContainer.current.style.display = "none";
 	};
@@ -177,15 +177,13 @@ export default function AdminDashboardComponent() {
 						onChange={handleMediaTextChange}
 						required></textarea>
 					<div className="image-upload-container">
-						<label htmlFor="media-image-upload">
-							Velg et bilde eller video å laste opp
-						</label>
+						<label htmlFor="media-image-upload">Last opp ett bilde</label>
 						<input
 							type="file"
 							name="media-image-upload"
 							accept="image/* video/*"
 							ref={fileInputRef}
-							onChange={handleMediaFileChange}
+							onChange={handleMediaImageChange}
 							style={{ display: "none" }}></input>
 
 						<div className="selected-image-container">
@@ -204,7 +202,7 @@ export default function AdminDashboardComponent() {
 								<button
 									className="remove-image-button"
 									type="button"
-									onClick={removeSelectedFile}>
+									onClick={removeSelectedImage}>
 									<img
 										src="/assets/icons/icon-x.svg"
 										alt="remove-selected"></img>
@@ -221,7 +219,7 @@ export default function AdminDashboardComponent() {
 
 						{/*Gets the file text from the type="file" button*/}
 						<div className="selected-file-text">
-							{mediaFile ? mediaFile.name : "Ingen fil valgt"}
+							{mediaImage ? mediaImage.name : "Ingen fil valgt"}
 						</div>
 					</div>
 					<button type="submit" className="std-btn">
