@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import MediaPost from "../components/MediaPost";
-import MediaVideoPost from "../components/MediaVideoPost";
 
 export default function Media() {
 	const [posts, setPosts] = useState([]);
@@ -28,17 +27,14 @@ export default function Media() {
 			/>
 
 			<div className="media-posts-container">
-				<MediaVideoPost
-					MediaTitle={"Hello"}
-					MediaText={"Videotest"}
-					VideoPath={process.env.PUBLIC_URL + "/assets/videos/CubeRender.mp4"}
-				/>
 				{posts.map((post) => (
 					<MediaPost
 						key={post._id}
 						MediaTitle={post.headline}
 						MediaText={post.mediaText}
 						ImagePath={`${post.image}`}
+						VideoPath={`${post.video}`}
+
 						//ImagePath={post.image ? `uploads/${post.image}` : null}
 					/>
 				))}

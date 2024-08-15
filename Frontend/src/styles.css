@@ -1293,11 +1293,11 @@ button.prev-button:hover, button.next-button:hover {
     margin-right: 1rem;
 }
 .selected-file-text{
-    font-size: .5rem;
+    font-size: 1rem;
 }
 .upload-image-button{
     display: flex;
-    padding: 1rem;
+    padding: .8rem;
     margin-top: 1rem;
     background-color: var(--primary-color);
     border: none;

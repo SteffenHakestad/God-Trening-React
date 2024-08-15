@@ -54,6 +54,7 @@ const mediaPostSchema = new mongoose.Schema(
 		headline: String,
 		mediaText: String,
 		image: String, // Storing image path or URL
+		video: String,
 		createdAt: { type: Date, default: Date.now },
 	},
 	{ collection: "mediaPost" }
@@ -62,23 +63,32 @@ const mediaPostSchema = new mongoose.Schema(
 const MediaPost = mongoose.model("MediaPost", mediaPostSchema);
 
 // Define route for posting new content to DB
-app.post("/api/posts", upload.single("image"), async (req, res) => {
-	const { headline, mediaText } = req.body;
-	const imagePath = req.file ? req.file.path : "";
+app.post(
+	"/api/posts",
+	upload.fields([
+		{ name: "image", maxCount: 1 },
+		{ name: "video", maxCount: 1 },
+	]),
+	async (req, res) => {
+		const { headline, mediaText } = req.body;
+		const imagePath = req.file ? req.file.path : "";
+		const videoPath = req.file ? req.file.path : "";
 
-	const newPost = new MediaPost({
-		headline,
-		mediaText,
-		image: imagePath,
-	});
+		const newPost = new MediaPost({
+			headline,
+			mediaText,
+			image: imagePath,
+			video: videoPath,
+		});
 
-	try {
-		await newPost.save();
-		res.status(201).send(newPost);
-	} catch (err) {
-		res.status(400).send(err);
+		try {
+			await newPost.save();
+			res.status(201).send(newPost);
+		} catch (err) {
+			res.status(400).send(err);
+		}
 	}
-});
+);
 
 // Define route for fetching media posts
 //Show most recent media post at the top
