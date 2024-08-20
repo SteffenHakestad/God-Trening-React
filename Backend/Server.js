@@ -71,8 +71,11 @@ app.post(
 	]),
 	async (req, res) => {
 		const { headline, mediaText } = req.body;
-		const imagePath = req.file ? req.file.path : "";
-		const videoPath = req.file ? req.file.path : "";
+		const imagePath = req.files.image ? req.files.image[0].path : "";
+		const videoPath = req.files.video ? req.files.video[0].path : "";
+
+		// const imagePath = req.file ? req.file.path : "";
+		// const videoPath = req.file ? req.file.path : "";
 
 		const newPost = new MediaPost({
 			headline,

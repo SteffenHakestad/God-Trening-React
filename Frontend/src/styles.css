@@ -554,60 +554,7 @@ a:visited{
         padding-left: 1rem;
     }
 }
-/* Start of image slider. Home page*/
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    overflow: hidden;
-}
 
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.sliding-images-outer-container {
-    display: flex;
-    max-height: 1080px;
-    height: 800px;
-    overflow: hidden;
-    margin-bottom: 3rem;
-}
-
-.slide img {
-    max-width: 1920px;
-    max-height: 800px;
-    background-size: cover;
-
-}
-
-button.prev-button, button.next-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-button.prev-button {
-    left: 10px;
-}
-
-button.next-button {
-    right: 10px;
-}
-
-button.prev-button:hover, button.next-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-/* End of image slider. Home page*/
 /*Start of "About me*/
 .about-outer-container{
     display: flex;
@@ -671,6 +618,39 @@ button.prev-button:hover, button.next-button:hover {
 
 }
 /*End of "About me*/
+/*Start of Media Preview component*/
+#preview-media-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    width: 100%;
+    flex-direction: column;
+    color: var(--dark-gray);
+}
+#preview-header-text{
+    font-family: "Bellota";
+    font-size: 5rem;
+    margin-bottom: 1rem;
+}
+#preview-title{
+    margin: 1rem 0rem 1rem 0rem;
+    font-size: 3rem;
+    font-family: "Bellota";
+}
+#preview-text{
+    font-size: 2rem;
+}
+.readmore-btn{
+    margin-top: 1rem;
+}
+.media-preview-image{
+    object-fit: fill;
+    max-width: 20rem;
+    max-height: 20rem;
+    border-radius: 1rem;
+}
+/*End of Media Preview component*/
 
 /*START OF CONTACT PAGE*/
 .contact-header{
@@ -1075,22 +1055,29 @@ button.prev-button:hover, button.next-button:hover {
 
 .media-attachment-container {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     margin-top: 1.5rem;
-    background-color: red;
     width: 100%;
     max-height: 500px;
+    gap: 2rem;
 }
 
 .media-image {
     object-fit: contain;
-    width: 100%;
+    max-width: 700px;
+    max-height: 500px;
+    border-radius: 1rem;
+    box-shadow: 15px 15px 26px 0px rgba(0,0,0,0.5);
 }
 
 .media-video {
+    object-fit: fill;
     width: 100%;
-    max-width: 400px;
-    max-height: 300px;
+    max-width: 900px;
+    max-height: 500px;
+    border: 2px solid var(--dark-gray);
+    border-radius: 1rem;
+    box-shadow: 15px 15px 26px 0px rgba(0,0,0,0.5);
 }
 
 .h-media-divider {

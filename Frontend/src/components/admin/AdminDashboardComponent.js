@@ -106,6 +106,11 @@ export default function AdminDashboardComponent() {
 		formData.append("image", mediaImage);
 		formData.append("video", mediaVideo);
 
+		// //Loops and logs all formdata entries.
+		// for (let [key, value] of formData.entries()) {
+		// 	console.log(`${key}:`, value);
+		// }
+
 		try {
 			const response = await axios.post("/api/posts", formData, {
 				headers: {
@@ -257,26 +262,6 @@ export default function AdminDashboardComponent() {
 									alt="upload icon"
 									src="/assets/icons/icon-upload-video.svg"></img>
 							</button>
-							{/* <div
-								className="preview-upload-image-container"
-								ref={previewContainer}
-								style={{ display: "none" }}>
-								<button
-									className="remove-image-button"
-									type="button"
-									onClick={removeSelectedImage}>
-									<img
-										src="/assets/icons/icon-x.svg"
-										alt="remove-selected"></img>
-								</button>
-								{previewUrl && (
-									<img
-										src={previewUrl}
-										className="preview-upload-image"
-										alt="Preview"
-									/>
-								)}
-							</div> */}
 						</div>
 
 						{/*Gets the file text from the type="file" button*/}

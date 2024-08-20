@@ -1,9 +1,19 @@
+import React, { useEffect, useState } from "react";
 import HeroImageComponent from "../components/HeroImageComponent";
-import React from "react";
 import ServicesComponent from "../components/ServicesComponent";
+import MediaPostPreviewComponent from "../components/MediaPostPreviewComponent";
 import Footer from "../components/Footer";
 
 export default function Home() {
+	const [posts, setPosts] = useState([]);
+
+	useEffect(() => {
+		// Fetch data from the backend
+		fetch("/api/posts")
+			.then((response) => response.json())
+			.then((data) => setPosts(data))
+			.catch((error) => console.error("Error fetching data:", error));
+	}, []);
 	return (
 		<>
 			<HeroImageComponent />
@@ -27,6 +37,12 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
+			<MediaPostPreviewComponent
+				key={posts[0]._id}
+				MediaTitle={posts[0].headline}
+				MediaText={posts[0].mediaText}
+				ImagePath={`${posts[0].image}`}
+			/>
 			<Footer />
 		</>
 	);
