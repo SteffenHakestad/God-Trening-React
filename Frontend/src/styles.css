@@ -650,6 +650,25 @@ a:visited{
     max-height: 20rem;
     border-radius: 1rem;
 }
+#mediapost-preview-home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#mediapost-preview-home-inner-container{
+    display: flex;
+    gap: 3rem;
+    
+    
+
+}
+
+
+
+
+
+
 /*End of Media Preview component*/
 
 /*START OF CONTACT PAGE*/
