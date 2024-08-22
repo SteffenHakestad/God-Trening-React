@@ -441,7 +441,10 @@ a:visited{
     background-color: var(--primary-color);
     transition: .5s;
 }
-
+.std-btn:disabled{
+    background-color: lightgrey;
+    pointer-events: none;
+}
 .right-arrow-icon{
     width: 2rem;
     height: 2rem;
@@ -623,6 +626,7 @@ a:visited{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin-top: 3rem;
     width: 100%;
     flex-direction: column;
@@ -632,6 +636,7 @@ a:visited{
     font-family: "Bellota";
     font-size: 5rem;
     margin-bottom: 1rem;
+
 }
 #preview-title{
     margin: 1rem 0rem 1rem 0rem;
@@ -640,6 +645,10 @@ a:visited{
 }
 #preview-text{
     font-size: 2rem;
+    width: 70ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .readmore-btn{
     margin-top: 1rem;
@@ -656,11 +665,30 @@ a:visited{
     justify-content: center;
     align-items: center;
 }
+#mediapost-preview-home-container h1{
+    color: var(--dark-gray);
+}
 #mediapost-preview-home-inner-container{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 3rem;
-    
-    
+    width: 70%;
+}
+.cycle-post-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 1rem;
+    border: none;
+    cursor: pointer;
+}
+.cycle-post-svg{
+    padding: 1rem;
+    height: 7rem;
+
 
 }
 
@@ -1066,6 +1094,8 @@ a:visited{
     text-align: left;
     font-size: 2rem;
     color: var(--dark-gray);
+    overflow-wrap: anywhere;
+    
 }
 
 .media-container a:visited {
