@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Linkify from "linkify-react";
 
 export default function MediaPostPreview({ MediaTitle, MediaText, ImagePath }) {
 	return (
@@ -8,7 +9,9 @@ export default function MediaPostPreview({ MediaTitle, MediaText, ImagePath }) {
 				<img className="media-preview-image" alt="media" src={`${ImagePath}`} />
 
 				<h1 id="preview-title">{MediaTitle}</h1>
-				<p id="preview-text">{MediaText}</p>
+				<Linkify>
+					<p id="preview-text">{MediaText}</p>
+				</Linkify>
 				<Link to="/media">
 					<button className="std-btn readmore-btn">Les mer..</button>
 				</Link>
