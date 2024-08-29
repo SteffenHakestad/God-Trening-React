@@ -1,45 +1,46 @@
-import { Link, useMatch, useResolvedPath } from "react-router-dom"
-
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 export default function Navbar() {
+	return (
+		<nav id="navbar">
+			{/*Links to home page from logo*/}
+			<Link to="/home" id="navbar-title">
+				<img
+					alt="navbar title"
+					src="/assets/images/GT-logo.png"
+					className="navbar-logo-img"></img>
+			</Link>
 
-
-    return <nav id="navbar">
-        {/*Links to home page from logo*/}
-        <Link to="/home" id="navbar-title">God Trening</Link>
-        {/*Links from navbar to all pages on app*/}
-        <ul className="navbar-link-list">
-            <CustomLink to="/home" className="navbar-link"> Temp Home*</CustomLink>
-            <CustomLink to="/services" className="navbar-link">Tjenester</CustomLink>
-            <CustomLink to="/media" className="navbar-link">Media</CustomLink>
-            <CustomLink to="/contact" className="navbar-link">Kontakt</CustomLink>
-            <CustomLink to="/admin" className="navbar-link">Temp Admin*</CustomLink>
-
-
-
-            
-            {/*
-                Navbar links to dashboard and admin dashboard. Should not be accessible from navbar
-                Do /dashboard or /admin in the url to access
-                <CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
-                <CustomLink to="/admin" className="navbar-link">(temp)Admin Dashboard</CustomLink>
-            */}
-
-        </ul>
-    </nav>
+			{/*Links from navbar to all pages on app*/}
+			<ul className="navbar-link-list">
+				<CustomLink to="/services" className="navbar-link">
+					Tjenester
+				</CustomLink>
+				<CustomLink to="/media" className="navbar-link">
+					Media
+				</CustomLink>
+				<CustomLink to="/contact" className="navbar-link">
+					Kontakt
+				</CustomLink>
+				<CustomLink to="/GTadmin" className="navbar-link">
+					Temp Admin*
+				</CustomLink>
+			</ul>
+		</nav>
+	);
 }
 
-function CustomLink ({ to, children, t, ...props}) {
-    const resolvedPath = useResolvedPath(to)
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true })
-    return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>{children}</Link>
-        </li>
-    )
+function CustomLink({ to, children, t, ...props }) {
+	const resolvedPath = useResolvedPath(to);
+	const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+	return (
+		<li className={isActive ? "active" : ""}>
+			<Link to={to} {...props}>
+				{children}
+			</Link>
+		</li>
+	);
 }
-
-
 
 // //Function to detect if the page is scrolled.
 // window.onscroll = function() {
@@ -56,10 +57,6 @@ function CustomLink ({ to, children, t, ...props}) {
 //     document.getElementById("navbar-title").style.fontSize = "5.5rem";
 //   }
 // }
-
-
-
-
 
 //Below code was used to toggle between mobile and desktop navbar. Too much weird stuff happened, so I made one full size navbar and one mobile navbar.
 
@@ -118,16 +115,14 @@ function CustomLink ({ to, children, t, ...props}) {
 // window.onscroll = function() {
 //     scrollFunction();
 // };
-  
+
 // Set the original font size in rem
 //var originalFontSize = 5.5;
-
-
 
 // function applyFontSize() {
 //   // Calculate the font size based on resolution
 //   var newSize = calculateFontSize();
-  
+
 //   // Apply the calculated font size to the element
 //   document.getElementById("navbar-title").style.fontSize = newSize + "rem";
 // }
@@ -156,13 +151,11 @@ function CustomLink ({ to, children, t, ...props}) {
 //   }
 // }
 
-  
 // vvvv This is a link to dashboard page. Should not be accessible from the navbar, but is here for testing purposes
 //<CustomLink to="/dashboard" className="navbar-link">(temp)Dashboard</CustomLink>
 
 //Function to detect if the page is scrolled.
 //If the page is scrolled, the navbar will shrink and the font size will decrease.
-
 
 // This was used to set font size based on resolution.
 // function calculateFontSize() {

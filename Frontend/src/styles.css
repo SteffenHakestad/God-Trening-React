@@ -21,13 +21,13 @@ body{
     --container-margin: 0rem 3rem 0rem 3rem;
     --dark-gray: #4A4A4A;
     --light-gray: #D7D7D7;
-    --primary-color: #BEDC84;
-    --secondary-color: #FFCFC2;
+    --primary-color: #f8c80d;
+    --secondary-color: #db0262;
     --tirtiary-color: #977AAF;
 }
-a:visited{
+/* a:visited{
     color: white;
-}
+} */
 /*This container is placeholder for navbar since navbar is fixed*/
 .container{
     padding-top: 7rem;
@@ -46,12 +46,12 @@ a:visited{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--light-gray); 
+    background: white; 
     width: 100%;
     height: 7rem;
     padding: 0rem 2rem 0rem 2rem;
     flex-direction: row;
-    border-bottom: var(--dark-gray) 1px solid;
+    border-bottom: var(--primary-color) 1px solid;
     position: fixed;
     transition: height 0.2s ease-in-out;
     z-index: 1000;
@@ -60,13 +60,11 @@ a:visited{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 5.5rem;
-    color: var(--dark-gray);;
-    height: fit-content;
-    width: fit-content;
-    line-height: 1;
+    max-height: 7rem;
     cursor: pointer;
-    transition: font-size 0.2s ease-in-out;
+}
+.navbar-logo-img{
+    height: 8rem;
 }
 
 .navbar-link-list{
@@ -110,9 +108,9 @@ a:visited{
 }
 @media (max-width: 1400px){
 
-    /* #navbar-title{
-        font-size: 4rem;
-    } */
+    .navbar-logo-img{
+        height: 7rem;
+    }
     .navbar-link{
         font-size: 2rem;
     }
@@ -122,6 +120,9 @@ a:visited{
 }
 @media (max-width: 1030px){
 
+    .navbar-logo-img{
+        height: 6rem;
+    }
     #navbar-title{
         font-size: 3.8rem;
     }
@@ -137,6 +138,9 @@ a:visited{
 }
 @media (max-width: 880px){
 
+    .navbar-logo-img{
+        height: 5rem;
+    }
     #navbar-title{
         font-size: 1rem;
     }
@@ -156,7 +160,7 @@ a:visited{
 #mobile-navbar{
     display: none;
     justify-content: space-between;
-    background: var(--pastel-gradient);
+    background-color: white;
     width: 100%;
     height: 5rem;
     padding: 0rem .8rem 0rem .8rem;
@@ -165,18 +169,14 @@ a:visited{
     position: fixed;
     transition: height 0.2s ease-in-out;
     z-index: 1000;
+    flex-wrap: wrap;
 }
 #mobile-navbar-title{
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 4rem;
-    color: var(--dark-gray);
-    font-family: "just me again down here", cursive;
-    color: white;
+    justify-content: left;
     height: fit-content;
     width: fit-content;
-    line-height: 1;
     cursor: pointer;
     transition: font-size 0.2s ease-in-out;
 }
@@ -215,17 +215,16 @@ a:visited{
 }
 .bar{
     display: block;
-    background-color: var(--secondary-color);
+    background-color: var(--primary-color);
     height: 10px;
     width: 100%;
     border-radius: 10px;
-    border: solid var(--dark-gray) .05rem;
 
 }
 #navbar-mobile-links-container{
     display: flex;
     flex-direction: column;
-    background: var(--pastel-gradient);
+    background: white;
     position: fixed;
     border-bottom: var(--dark-gray) 1px solid;
     top: 5rem;
@@ -247,13 +246,14 @@ a:visited{
     cursor: pointer;
     font-size: 2rem;
     list-style: none;
-    color: var(--dark-gray);
+    color: var(--primary-color);
     text-decoration: underline;
     text-decoration-color: transparent;
     text-underline-offset: .8rem;
 }
 .navbar-mobile-link:visited{
     color: var(--dark-gray);
+
 
 }
 .navbar-mobile-link:hover{
@@ -324,17 +324,39 @@ a:visited{
     font-size: 2rem;
 }
 .header-container img {
-    width: 2rem;
-    height: 2rem;
-    fill: var(--dark-gray);
+    width: 3rem;
+    height: 3rem;
 }
 @media (max-width: 800px){
     .header h1{
-        font-size: 6rem;
+        font-size: 5rem;
     }
     .header{
         padding: 4rem;
         margin-bottom: 3rem;
+    }
+    .header-container a {
+        font-size: 1.5rem;
+    }
+    .header-container img {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+@media (max-width: 400px){
+    .header h1{
+        font-size: 3rem;
+    }
+    .header{
+        padding: 3rem;
+        margin-bottom: 2rem;
+    }
+    .header-container a {
+        font-size: 1rem;
+    }
+    .header-container img {
+        width: 2rem;
+        height: 2rem;
     }
 }
 /*End of multi page Header*/
@@ -562,7 +584,6 @@ a:visited{
 .about-outer-container{
     display: flex;
     align-items: center;
-    
     background-color: white;
     width: 100%;
     height: 25rem;
@@ -572,7 +593,6 @@ a:visited{
     display: flex;
     align-items: center;
     background-color: var(--light-gray);
-
     width: 100%;
     height: 20rem;
     color: var(--dark-gray);
@@ -591,13 +611,14 @@ a:visited{
     padding: 1rem 4rem 0rem 3rem;
     height: 100%;
     width: 60%;
+    
 }
 .about-image-container{
     display: flex;
     align-items: center;
     width: 40%;
     height: 100%;
-    margin-left: 10rem;
+    margin-left: 5rem;
 
 }
 .image-shell{
@@ -619,6 +640,24 @@ a:visited{
     width: 18rem;
     border-radius: 10rem;
 
+}
+
+@media (max-width: 1000px){
+    .about-text-container{
+        padding: 1rem 2rem 0rem 1rem;
+    }
+    .about-inner-container p {
+        font-size: 1.2rem;
+        margin-left: 3rem;
+    }
+    .about-image-container{
+        display: none;
+    }
+    .about-text-container{
+        padding: 1rem 4rem 0rem 4rem;
+        width: 100%;
+        
+    }
 }
 /*End of "About me*/
 /*Start of Media Preview component*/
@@ -658,6 +697,8 @@ a:visited{
     max-width: 20rem;
     max-height: 20rem;
     border-radius: 1rem;
+    box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+
 }
 #mediapost-preview-home-container{
     display: flex;
@@ -865,14 +906,17 @@ a:visited{
     align-items: center;
     background-color: var(--primary-color);
     border: var(--dark-gray) 1px solid;
+    border: none;
     border-radius: 50%;
     padding: 1.5rem;
     max-height: 130px;
     max-width: 130px;
     cursor: pointer;
+    transition: all;
+    box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
+
 }
 .services-btn:hover{
-    background-color: var(--secondary-color);
     transition: .5s;
 }
 .services-btn:not(:hover) {
@@ -954,6 +998,13 @@ a:visited{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+
+}
+.horizontal-sidebar-container a{
+    width: 100%;
+    padding: 0rem 1rem 0rem 1rem;
+
 
 }
 .thick-right-arrow-icon{
@@ -977,7 +1028,7 @@ a:visited{
     border: none;
     padding: 1rem;
     max-height: 5rem;
-    width: 25rem;
+    width: 100%;
     cursor: pointer;
     font-size: 1.5rem;
     text-align: left;
@@ -1354,6 +1405,7 @@ a:visited{
     height: 5rem;
     object-fit: cover;
     border-radius: 1rem;
+
 }
 .remove-image-button{
     position: absolute;

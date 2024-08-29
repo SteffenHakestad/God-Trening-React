@@ -1,16 +1,10 @@
-import React from 'react';
-import ContactMailToComponent from '../components/ContactMailToComponent';
-import Footer from '../components/Footer';
-
-
+import React from "react";
+import ContactMailToComponent from "../components/ContactMailToComponent";
 
 export default function Contact() {
-
-
-    return (
-        <>
-        <ContactMailToComponent />
-        <Footer />
-        </>
-    );
+	return (
+		<>
+			<ContactMailToComponent />
+		</>
+	);
 }

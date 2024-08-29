@@ -9,7 +9,7 @@ export default function Footer() {
 					<Link to="/home">
 						<img
 							alt="logo"
-							src="/assets/images/NewLogoText.png"
+							src="/assets/images/GT-logo.png"
 							className="footer-logo"></img>
 					</Link>
 

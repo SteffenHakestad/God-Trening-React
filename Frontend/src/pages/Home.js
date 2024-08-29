@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import HeroImageComponent from "../components/HeroImageComponent";
 import ServicesComponent from "../components/ServicesComponent";
 import MediaPostPreviewComponent from "../components/MediaPostPreviewComponent";
-import Footer from "../components/Footer";
+import AboutComponent from "../components/AboutComponent";
 
 export default function Home() {
 	const [posts, setPosts] = useState([]);
@@ -35,25 +35,8 @@ export default function Home() {
 		<>
 			<HeroImageComponent />
 			<ServicesComponent />
-			<div className="about-outer-container">
-				<div className="about-inner-container">
-					<div className="about-text-container">
-						<h1>Guri Brekke</h1>
-						<p>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-							varius luctus dignissim. Mauris vehicula erat id orci faucibus, ac
-							porttitor mauris accumsan. Quisque tellus est, pellentesque ut
-							ornare quis, posuere ornare massa. Suspendisse quis orci
-							hendrerit."
-						</p>
-					</div>
-					<div className="about-image-container">
-						<div className="image-shell">
-							<img src="/assets/images/StockPhoto.jpg" alt="about me" />
-						</div>
-					</div>
-				</div>
-			</div>
+			<AboutComponent />
+
 			{/* Media post preview container */}
 			{posts.length > 0 && (
 				<div id="mediapost-preview-home-container">
@@ -88,14 +71,13 @@ export default function Home() {
 					<div className="h-media-divider-small"></div>
 				</div>
 			)}
-			<Footer />
 		</>
 	);
 }
 
 //For a preview of the 3 newest media posts.
-{
-	/* {posts.length > 0 && (
+
+/* {posts.length > 0 && (
             <MediaPostPreviewComponent
               key={posts[0]._id}
               MediaTitle={posts[0].headline}
@@ -123,6 +105,5 @@ export default function Home() {
               ImagePath={`${posts[2].image}`}
             />
           )} */
-}
 
 // background: url(http://localhost:3000/static/media/StockPhoto.9a78d0ada57723114d66.jpg) no-repeat;

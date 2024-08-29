@@ -11,7 +11,10 @@ export default function MobileNavbar() {
 	return (
 		<nav id="mobile-navbar">
 			<Link to="/home" id="mobile-navbar-title">
-				God Trening
+				<img
+					alt="navbar title"
+					src="/assets/images/GT-logo.png"
+					className="navbar-logo-img"></img>
 			</Link>
 
 			{/*Button to toggle links to other pages.*/}
@@ -26,23 +29,18 @@ export default function MobileNavbar() {
 				id="navbar-mobile-links-container"
 				style={{ display: isMobileLinksVisible ? "flex" : "none" }}>
 				<ul className="navbar-mobile-link-list" onClick={toggleMobileLinks}>
-					<CustomLink to="/news" className="navbar-mobile-link">
-						fghfghfgh
+					<CustomLink to="/services" className="navbar-mobile-link">
+						Tjenester
 					</CustomLink>
-					<CustomLink to="/events" className="navbar-mobile-link">
-						sdfsdf
+					<CustomLink to="/media" className="navbar-mobile-link">
+						Media
 					</CustomLink>
-					<CustomLink to="/gallery" className="navbar-mobile-link">
-						sadfsdf
+					<CustomLink to="/contact" className="navbar-mobile-link">
+						Kontakt
 					</CustomLink>
-					<CustomLink to="/blog" className="navbar-mobile-link">
-						Blog
-					</CustomLink>
-					<CustomLink to="/chat" className="navbar-mobile-link">
-						Chat
-					</CustomLink>
-					<CustomLink to="/member" className="navbar-mobile-link">
-						Member
+					{/* Remove this before production */}
+					<CustomLink to="/GTadmin" className="navbar-mobile-link">
+						Admin
 					</CustomLink>
 				</ul>
 			</div>

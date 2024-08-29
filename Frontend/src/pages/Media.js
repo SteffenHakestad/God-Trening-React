@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import MediaPost from "../components/MediaPost";
 
 export default function Media() {
@@ -39,7 +38,6 @@ export default function Media() {
 					/>
 				))}
 			</div>
-			<Footer />
 		</>
 	);
 }
