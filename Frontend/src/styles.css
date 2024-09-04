@@ -431,6 +431,16 @@ body{
     }
 }
 
+.horizontal-index-footer{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 1rem;
+}
+.footer-inner-container a:visited{
+    color: white;
+}
+
 .h-footer-divider{
     width: 100px;
     height: 5px;
