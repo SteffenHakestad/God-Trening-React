@@ -31,6 +31,8 @@ body{
 /*This container is placeholder for navbar since navbar is fixed*/
 .container{
     padding-top: 7rem;
+    width: 100%;
+    overflow: hidden;
 }
 /*Less padding since mobile navbar is not as tall.*/
 @media (max-width: 700px){
@@ -96,7 +98,13 @@ body{
     text-decoration: underline;
     text-decoration-color: var(--dark-gray);
     text-decoration-thickness: 3px;
-    transition: .5s;
+    transition: 2s;
+}
+.navbar-link:not(:hover){
+    text-decoration: none;
+    text-decoration-color: var(--dark-gray);
+    text-decoration-thickness: 0px;
+    transition: 2s;
 }
 .navbar-link.active{
     text-decoration: underline;
@@ -386,7 +394,9 @@ body{
 }
 @media (max-width: 650px) {
     #footer-link-container {
+        overflow: hidden;
         flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -604,7 +614,7 @@ body{
     align-items: center;
     background-color: var(--light-gray);
     width: 100%;
-    height: 20rem;
+    height: 80%;
     color: var(--dark-gray);
 }
 .about-inner-container h1{
@@ -653,30 +663,78 @@ body{
 }
 
 @media (max-width: 1000px){
+    .about-outer-container{
+        height: 20rem;
+        margin-top: 4rem;
+    }
     .about-text-container{
+        height: 10rem;
         padding: 1rem 2rem 0rem 1rem;
+    }
+    .about-inner-container{
+        height: 100%;
+        font-size: 1rem;
     }
     .about-inner-container p {
         font-size: 1.2rem;
-        margin-left: 3rem;
+        margin-left: 1rem;
     }
     .about-image-container{
         display: none;
     }
     .about-text-container{
-        padding: 1rem 4rem 0rem 4rem;
-        width: 100%;
-        
+        padding: 1rem 1rem 0rem 1rem;
+        width: 100%; 
+    }
+    .about-inner-container h1{
+        font-size: 3rem;
+        margin-bottom: 1rem;
     }
 }
 /*End of "About me*/
 /*Start of Media Preview component*/
+#mediapost-preview-home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: blue;
+}
+#mediapost-preview-home-container h1{
+    color: var(--dark-gray);
+}
+#mediapost-preview-home-inner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 70%;
+}
+.cycle-post-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 50%;
+    margin: 1rem;
+    border: none;
+    cursor: pointer;
+}
+.cycle-post-svg{
+    padding: 1rem;
+    height: 7rem;
+}
+
+
+
 #preview-media-container{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     margin-top: 3rem;
+    background-color: red;
     width: 100%;
     flex-direction: column;
     color: var(--dark-gray);
@@ -708,41 +766,11 @@ body{
     max-height: 20rem;
     border-radius: 1rem;
     box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
-
 }
-#mediapost-preview-home-container{
+
+.mobile-cycle-post-container{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
-#mediapost-preview-home-container h1{
-    color: var(--dark-gray);
-}
-#mediapost-preview-home-inner-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    width: 70%;
-}
-.cycle-post-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 50%;
-    margin: 1rem;
-    border: none;
-    cursor: pointer;
-}
-.cycle-post-svg{
-    padding: 1rem;
-    height: 7rem;
-
-
-}
-
 
 
 
@@ -783,16 +811,32 @@ body{
     height: 5rem;
     fill: var(--dark-gray);
 }
+@media (max-width: 700px){
+    .contact-header{
+    padding: 3rem 2rem 3rem 2rem;
 
+    }
+    .contact-header h1{
+        font-size: 5rem;
+    }
+    .contact-header-container div {
+        font-size: 1.5rem;
+    }
+    .contact-header-container img {
+        width: 3rem;
+        height: 3rem;
+    }
+}
 
 
 .mailto-container{
-    margin : var(--container-margin);
-    padding: 0rem 5rem 0rem 5rem;
-    background-color: white;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin : var(--container-margin);
+    padding: 0rem 5rem 0rem 5rem;
+    background-color: white;
+
 
 }
 .mailto-container h1{
@@ -800,7 +844,21 @@ body{
     justify-content: center;
     font-size: 3.5rem;
     color: var(--dark-gray);
+    margin-bottom: 1rem;
 
+}
+
+@media (max-width: 700px){
+    .mailto-container{
+        margin: 0rem 1rem 0rem 1rem;
+        padding: 0rem;
+        justify-content: center;
+
+    }
+    .mailto-container h1{
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
 }
 
 #mail-form{
@@ -810,7 +868,6 @@ body{
     height: 100%;
     flex-wrap: wrap;
     padding-top: 1rem;
-
 }
 #contact-info-container{
     width: 50%;
@@ -820,7 +877,7 @@ body{
 }
 #contact-message-container{
     width: 50%;
-    padding: 1rem 0rem 1.9rem 0rem; 
+    padding: 1rem 1rem 1.9rem 1rem; 
 }
 #contact-message-container textarea{
     width: 100%;
@@ -851,7 +908,20 @@ body{
 .submit-mail-btn{
     width: 100%;
     height: 4rem;
-
+}
+@media (max-width: 700px){
+    #mail-form{
+        flex-direction: column;
+    }
+    #contact-info-container{
+        width: 100%;
+    }
+    #contact-message-container{
+        width: 100%;
+    }
+    .input-field{
+        font-size: 1.5rem;
+    }
 }
 
 /*END OF CONTACT PAGE*/
@@ -915,7 +985,7 @@ body{
     justify-content: center;
     align-items: center;
     background-color: var(--primary-color);
-    border: var(--dark-gray) 1px solid;
+
     border: none;
     border-radius: 50%;
     padding: 1.5rem;
@@ -923,11 +993,14 @@ body{
     max-width: 130px;
     cursor: pointer;
     transition: all;
-    box-shadow: 3px 3px 6px 0px rgba(0,0,0,0.75);
 
 }
 .services-btn:hover{
-    transition: .5s;
+    transition: .2s;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+
+
+
 }
 .services-btn:not(:hover) {
     background-color: var(--primary-color);

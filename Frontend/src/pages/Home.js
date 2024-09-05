@@ -66,6 +66,24 @@ export default function Home() {
 								alt="next icon"
 								src="\assets\icons\icon-right-arrow.svg"></img>
 						</button>
+						<div className="mobile-cycle-post-container">
+							<button
+								className="cycle-post-btn"
+								onClick={() => CyclePost("prev")}>
+								<img
+									className="cycle-post-svg"
+									alt="previous icon"
+									src="\assets\icons\icon-left-arrow.svg"></img>
+							</button>
+							<button
+								className="cycle-post-btn"
+								onClick={() => CyclePost("next")}>
+								<img
+									className="cycle-post-svg"
+									alt="next icon"
+									src="\assets\icons\icon-right-arrow.svg"></img>
+							</button>
+						</div>
 					</div>
 
 					<div className="h-media-divider-small"></div>
