@@ -392,13 +392,7 @@ body{
     flex-direction: row;
     gap: 2rem;
 }
-@media (max-width: 650px) {
-    #footer-link-container {
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: center;
-    }
-}
+
 
 .footer-inner-container{
     display: flex;
@@ -412,14 +406,7 @@ body{
     text-decoration: none;
     text-align: left;
 }
-@media (max-width: 650px) {
-    .footer-inner-container h1 {
-        font-size: 2rem;
-    }
-    .horizontal-footer a {
-        font-size: 5rem;
-    }
-}
+
 .footer-inner-container a{
     text-align: left;
     font-size: 2rem;
@@ -435,11 +422,7 @@ body{
     color: white;
     font-size: 2rem;
 }
-@media (max-width: 650px) {
-    .horizontal-footer a {
-        font-size: 1.5rem;
-    }
-}
+
 
 .horizontal-index-footer{
     display: flex;
@@ -458,6 +441,79 @@ body{
     border-radius: 1rem;
     margin: .5rem 0rem .5rem 0rem;
 }
+
+@media (max-width: 650px) {
+    #footer-logo-container img{
+        max-width: 15rem;
+        margin: 0rem;
+
+    }
+    #footer-logo-container > *:first-child
+    {
+        margin: 1rem 1rem 0rem 1rem;
+
+    }
+    .horizontal-footer{
+        margin: 1rem 1rem 0rem 1rem;
+    }
+    .horizontal-footer div{
+        font-size: 1.5rem;
+    }
+    .horizontal-footer a {
+        font-size: 1.5rem;
+    }
+    .footer-inner-container h1 {
+        font-size: 2rem;
+    }
+    #footer-link-container {
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+}
+@media (max-width: 350px) {
+    #footer-container{
+        padding: 0rem .5rem 0rem .5rem;
+    }
+    #footer-logo-container img{
+        max-width: 15rem;
+        margin: 0rem;
+    }
+
+    #footer-logo-container > *:first-child
+    {
+        margin: 1rem 1rem 0rem 1rem;
+
+    }
+
+    .horizontal-footer{
+        margin: 1rem 1rem 0rem 1rem;
+    }
+    .horizontal-footer div{
+        font-size: 1.2rem;
+    }
+    .horizontal-footer a {
+        font-size: 1.2rem;
+    }
+    .footer-inner-container{
+        margin: 0rem 0rem 1rem 0rem;
+    }
+    .footer-inner-container h1 {
+        font-size: 2rem;
+    }
+    #footer-link-container {
+        overflow: hidden;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .horizontal-index-footer a {
+        font-size: 1.5rem;
+
+    }
+
+}
+
 /*End of multi page Footer*/
 
 
@@ -475,8 +531,24 @@ body{
     border: none;
     padding: .5rem;
 }
+
+.services-btn:hover{
+    transition: .2s;
+    
+
+
+
+}
+.services-btn:not(:hover) {
+    background-color: var(--primary-color);
+    transition: .5s;
+}
+
+
+
 .std-btn:hover{
-    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    /* background-color: var(--secondary-color); */
     transition: .5s;
 }
 .std-btn:not(:hover){
@@ -611,7 +683,6 @@ body{
 }
 .about-inner-container{
     display: flex;
-    align-items: center;
     background-color: var(--light-gray);
     width: 100%;
     height: 80%;
@@ -628,7 +699,7 @@ body{
     margin-left: 5rem;
 }
 .about-text-container{
-    padding: 1rem 4rem 0rem 3rem;
+    padding: 1rem 0rem 0rem 1rem;
     height: 100%;
     width: 60%;
     
@@ -638,7 +709,7 @@ body{
     align-items: center;
     width: 40%;
     height: 100%;
-    margin-left: 5rem;
+    margin-left: 2rem;
 
 }
 .image-shell{
@@ -696,10 +767,9 @@ body{
 #mediapost-preview-home-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     width: 100%;
-    background-color: blue;
 }
 #mediapost-preview-home-container h1{
     color: var(--dark-gray);
@@ -708,25 +778,30 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
-    width: 70%;
+    width: 100%;
+    height: 100%;
+}
+.preview-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
 }
 .cycle-post-btn{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: transparent;
-    border-radius: 50%;
-    margin: 1rem;
     border: none;
     cursor: pointer;
+    width: 10%;
+    max-width: 7rem;
+    height: 100%;
+    z-index: 10;
 }
 .cycle-post-svg{
-    padding: 1rem;
     height: 7rem;
 }
-
-
 
 #preview-media-container{
     display: flex;
@@ -734,7 +809,6 @@ body{
     align-items: center;
     text-align: center;
     margin-top: 3rem;
-    background-color: red;
     width: 100%;
     flex-direction: column;
     color: var(--dark-gray);
@@ -743,6 +817,7 @@ body{
     font-family: "Bellota";
     font-size: 5rem;
     margin-bottom: 1rem;
+    text-align: center;
 
 }
 #preview-title{
@@ -752,13 +827,12 @@ body{
 }
 #preview-text{
     font-size: 2rem;
-    width: 70ch;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /* width: 70ch; */
+    overflow-wrap: anywhere;
+
 }
 .readmore-btn{
-    margin-top: 1rem;
+    margin: 2rem 0rem 1rem 0rem; 
 }
 .media-preview-image{
     object-fit: fill;
@@ -769,10 +843,66 @@ body{
 }
 
 .mobile-cycle-post-container{
+    display: none;
+    justify-content: space-between;
+    gap: 5rem;
+    width: 100%;
+    margin-top: 3rem;
+}
+.mobile-cycle-post-btn{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    max-width: 7rem;
+    height: 100%;
+    z-index: 10;
+}
+.mobile-cycle-post-svg{
+    height: 7rem;
+}
+.mobile-cycle-post-btn div{
+    color: var(--dark-gray);
+    font-size: 1.2rem;
+    margin-top: .5rem;
+
 }
 
-
+@media ( max-width: 800px) { 
+    #preview-header-text{
+        font-size: 3rem;
+    }
+    .cycle-post-btn{
+        width: 5rem;
+    }
+    .cycle-post-svg{
+        height: 5rem;
+    }
+}
+@media ( max-width: 600px) { 
+    #mediapost-preview-home-container{
+        padding: 0rem .5rem 0rem .5rem;
+    }
+    #preview-header-text{
+        font-size: 2.5rem;
+    }
+    .cycle-post-btn{
+        display: none;
+    }
+    .mobile-cycle-post-container{
+        display: flex;
+    }
+    #preview-title{
+        font-size: 2.5rem;
+    }
+    #preview-text{
+        font-size: 1.5rem;
+    
+    }
+}
 
 
 
@@ -860,6 +990,18 @@ body{
         margin-bottom: 1rem;
     }
 }
+@media (max-width: 400px){
+    .mailto-container h1{
+        font-size: 1.5rem;
+    }
+    .contact-header h1{
+        font-size: 3rem;
+    }
+    .contact-header{
+        padding: 3rem .5rem 3rem .5rem;
+    
+        }
+}
 
 #mail-form{
     display: flex;
@@ -902,7 +1044,6 @@ body{
     width: 50%;
     max-width: 50%;
     margin-left: 1rem;
-    background-color: red;
 
 }
 .submit-mail-btn{
@@ -1290,13 +1431,13 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding : var(--container-margin);
 }
 #admin-container h1{
     font-size: 3rem;
     color: var(--dark-gray);
     margin: 1rem 0rem 1rem 0rem;
-    font-weight: 500;
+    font-family: "Bellota";
+
 
 }
 .admin-divider{
@@ -1334,15 +1475,20 @@ body{
     width: 100%;
 }
 .login-label{
+    display: flex;
+    justify-content: right;
     color: var(--dark-gray);
     font-size: 2.5rem;
     margin-right: 1rem;
     height: 4rem;
-    margin: 1rem 1rem 1rem 0rem;
+    margin: 1rem 0rem 1rem 1rem;
+
 }
 
 .input-container{
     width: 100%;
+    display: flex;
+    align-items: left;
 }
 .login-input{
     width: 100%;
@@ -1351,7 +1497,7 @@ body{
     border-radius: .5rem;
     border: none;
     height: 4rem;
-    width: 20rem;
+    max-width: 20rem;
     background-color: var(--light-gray);
     color: var(--dark-gray);
     margin: 1rem 0rem 1rem 1rem;
@@ -1359,14 +1505,67 @@ body{
 .login-btn-container{
     width: 100%;
     height: 5rem;
-    background-color: red;
 }
 .login-btn{
-    width: 10%;
     margin: 1rem 0rem 1rem 1rem;
-    padding: .5rem;
+    padding: 1rem;
 }
 
+
+@media (max-width: 1000px) {
+    .login-label{
+        font-size: 2rem;
+        margin-right: 1rem;
+        height: 4rem;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+    .login-input{
+        font-size: 1.5rem;
+        height: 3.5rem;
+        width: 15rem;
+    }
+    .login-btn{
+        margin: 1rem 0rem 1rem 1rem;
+        padding: .5rem;
+    }
+}
+@media (max-width: 600px) {
+    #admin-container h1{
+        font-size: 2.5rem;
+    }
+    .login-label{
+        font-size: 1.2rem;
+        height: 3.5rem;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+    .login-input{
+        font-size: 1rem;
+        height: 3rem;
+        width: 10rem;
+    }
+    .login-btn{
+        font-size: 1.8rem;
+        margin: 1rem 0rem 1rem 1rem;
+        padding: .5rem;
+    }
+}
+@media (max-width: 321px) {
+    #admin-container h1{
+        font-size: 2rem;
+    }
+    .login-label{
+        align-items: center;
+        font-size: 1rem;
+        margin-right: 1rem;
+        height: 3rem;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+    .login-input{
+        font-size: 1rem;
+        height: 3rem;
+        width: 8rem;
+    }
+}
 /*End of Admin Login*/
 
 
@@ -1461,6 +1660,7 @@ body{
 }
 #collapse-3-container img{
     margin-right: 1rem;
+    width: 5rem;
 }
 .selected-file-text{
     font-size: 1rem;
@@ -1503,6 +1703,91 @@ body{
     width: 2rem;
     height: 2rem;
 }
+.v-upload-divider{
+    display: none;
+    height: 10rem;
+    width: 3px;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    margin: 0rem 3rem 0rem 3rem;
+}
+@media (max-width: 1000px){
+    .dashboard-collapse-btn{
+        justify-content: center;
+        font-size: 2rem;
+        width: 100%;
+    }
+    .dashboard-collapse-container{
+        width: 100%;
+    }
+    .image-upload-container{
+        width: 50%;
+    }
+    #file-upload-container{
+        display: flex;
+        justify-content: center;
+    }
+    .v-upload-divider{
+        display: block;
+        margin: 0rem 3rem 0rem 3rem;
+    }
+    .dashboard-collapse-container form{
+        display: flex;
+        flex-direction: column;
+    }
+    #collapse-3 div {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 400px){
+    #admin-dashboard{
+        margin: 0rem .5rem 0rem .5rem;
+    }
+    #admin-dashboard h1{
+        font-size: 1.8rem;
+    }
+    .input-field{
+        font-size: 1rem;
+    }
+    .dashboard-collapse-btn{
+        justify-content: center;
+        font-size: 1.5rem;
+        width: 100%;
+    }
+    .dashboard-collapse-container{
+        width: 100%;
+    }
+    .image-upload-container{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .image-upload-container label{
+        font-size: 1.5rem;
+    }
+    #file-upload-container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .v-upload-divider{
+        display: none;
+    }
+    .dashboard-collapse-container form{
+        display: flex;
+        flex-direction: column;
+    }
+    #collapse-3 div {
+        font-size: 1rem;
+    }
+    #collapse-3-container img{
+        width: 3rem;
+    }
+}
+
 
 /*End of Admin Dashboard*/
 

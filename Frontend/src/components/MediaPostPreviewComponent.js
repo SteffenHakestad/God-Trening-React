@@ -6,7 +6,14 @@ export default function MediaPostPreview({ MediaTitle, MediaText, ImagePath }) {
 	return (
 		<>
 			<div id="preview-media-container">
-				<img className="media-preview-image" alt="media" src={`${ImagePath}`} />
+				{/* Only show image if path isn't empty */}
+				{ImagePath !== "" && (
+					<img
+						className="media-preview-image"
+						alt="media"
+						src={`${ImagePath}`}
+					/>
+				)}
 
 				<h1 id="preview-title">{MediaTitle}</h1>
 				<Linkify>

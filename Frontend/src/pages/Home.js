@@ -37,7 +37,7 @@ export default function Home() {
 			<ServicesComponent />
 			<AboutComponent />
 
-			{/* Media post preview container */}
+			{/* Media post preview container. Only show if post exists*/}
 			{posts.length > 0 && (
 				<div id="mediapost-preview-home-container">
 					<div className="h-media-divider"></div>
@@ -52,12 +52,15 @@ export default function Home() {
 								alt="previous icon"
 								src="\assets\icons\icon-left-arrow.svg"></img>
 						</button>
-						<MediaPostPreviewComponent
-							key={posts[currentPost]._id}
-							MediaTitle={posts[currentPost].headline}
-							MediaText={posts[currentPost].mediaText}
-							ImagePath={`${posts[currentPost].image}`}
-						/>
+						<div className="preview-container">
+							<MediaPostPreviewComponent
+								key={posts[currentPost]._id}
+								MediaTitle={posts[currentPost].headline}
+								MediaText={posts[currentPost].mediaText}
+								ImagePath={`${posts[currentPost].image}`}
+							/>
+						</div>
+
 						<button
 							className="cycle-post-btn"
 							onClick={() => CyclePost("next")}>
@@ -66,24 +69,26 @@ export default function Home() {
 								alt="next icon"
 								src="\assets\icons\icon-right-arrow.svg"></img>
 						</button>
-						<div className="mobile-cycle-post-container">
-							<button
-								className="cycle-post-btn"
-								onClick={() => CyclePost("prev")}>
-								<img
-									className="cycle-post-svg"
-									alt="previous icon"
-									src="\assets\icons\icon-left-arrow.svg"></img>
-							</button>
-							<button
-								className="cycle-post-btn"
-								onClick={() => CyclePost("next")}>
-								<img
-									className="cycle-post-svg"
-									alt="next icon"
-									src="\assets\icons\icon-right-arrow.svg"></img>
-							</button>
-						</div>
+					</div>
+					<div className="mobile-cycle-post-container">
+						<button
+							className="mobile-cycle-post-btn"
+							onClick={() => CyclePost("prev")}>
+							<img
+								className="cycle-post-svg"
+								alt="previous icon"
+								src="\assets\icons\icon-left-arrow.svg"></img>
+							<div>Forrige Post</div>
+						</button>
+						<button
+							className="mobile-cycle-post-btn"
+							onClick={() => CyclePost("next")}>
+							<img
+								className="cycle-post-svg"
+								alt="next icon"
+								src="\assets\icons\icon-right-arrow.svg"></img>
+							<div>Neste Post</div>
+						</button>
 					</div>
 
 					<div className="h-media-divider-small"></div>

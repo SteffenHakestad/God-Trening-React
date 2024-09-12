@@ -195,79 +195,82 @@ export default function AdminDashboardComponent() {
 						onChange={handleMediaTextChange}
 						required></textarea>
 
-					{/* IMAGE UPLOAD */}
-					<div className="image-upload-container">
-						<label htmlFor="media-image-upload">Last opp ett bilde</label>
-						<input
-							type="file"
-							name="media-image-upload"
-							accept="image/*"
-							ref={imageInputRef}
-							onChange={handleMediaImageChange}
-							style={{ display: "none" }}></input>
+					<div id="file-upload-container">
+						{/* IMAGE UPLOAD */}
+						<div className="image-upload-container">
+							<label htmlFor="media-image-upload">Last opp ett bilde</label>
+							<input
+								type="file"
+								name="media-image-upload"
+								accept="image/*"
+								ref={imageInputRef}
+								onChange={handleMediaImageChange}
+								style={{ display: "none" }}></input>
 
-						<div className="selected-image-container">
-							<button
-								className="upload-image-button std-btn"
-								type="button"
-								onClick={handleImageButtonClick}>
-								<img
-									alt="upload icon"
-									src="/assets/icons/icon-upload-image.svg"></img>
-							</button>
-							<div
-								className="preview-upload-image-container"
-								ref={previewContainer}
-								style={{ display: "none" }}>
+							<div className="selected-image-container">
 								<button
-									className="remove-image-button"
+									className="upload-image-button std-btn"
 									type="button"
-									onClick={removeSelectedImage}>
+									onClick={handleImageButtonClick}>
 									<img
-										src="/assets/icons/icon-x.svg"
-										alt="remove-selected"></img>
+										alt="upload icon"
+										src="/assets/icons/icon-upload-image.svg"></img>
 								</button>
-								{previewUrl && (
-									<img
-										src={previewUrl}
-										className="preview-upload-image"
-										alt="Preview"
-									/>
-								)}
+								<div
+									className="preview-upload-image-container"
+									ref={previewContainer}
+									style={{ display: "none" }}>
+									<button
+										className="remove-image-button"
+										type="button"
+										onClick={removeSelectedImage}>
+										<img
+											src="/assets/icons/icon-x.svg"
+											alt="remove-selected"></img>
+									</button>
+									{previewUrl && (
+										<img
+											src={previewUrl}
+											className="preview-upload-image"
+											alt="Preview"
+										/>
+									)}
+								</div>
 							</div>
+							{/*Gets the file text from the type="file" button*/}
+							<p className="selected-file-text">
+								{mediaImage ? mediaImage.name : "Ingen fil valgt"}
+							</p>
 						</div>
-						{/*Gets the file text from the type="file" button*/}
-						<p className="selected-file-text">
-							{mediaImage ? mediaImage.name : "Ingen fil valgt"}
-						</p>
-					</div>
+						<div className="v-upload-divider"></div>
 
-					{/* VIDEO UPLOAD */}
-					<div className="image-upload-container">
-						<label htmlFor="media-video-upload">Og/eller en video</label>
-						<input
-							type="file"
-							name="media-video-upload"
-							accept="video/*"
-							ref={videoInputRef}
-							onChange={handleMediaVideoChange}
-							style={{ display: "none" }}></input>
+						{/* VIDEO UPLOAD */}
+						<div className="image-upload-container">
+							<label htmlFor="media-video-upload">Og/eller en video</label>
+							<input
+								type="file"
+								name="media-video-upload"
+								accept="video/*"
+								ref={videoInputRef}
+								onChange={handleMediaVideoChange}
+								style={{ display: "none" }}></input>
 
-						<div className="selected-image-container">
-							<button
-								className="upload-image-button std-btn"
-								type="button"
-								onClick={handleVideoButtonClick}>
-								<img
-									alt="upload icon"
-									src="/assets/icons/icon-upload-video.svg"></img>
-							</button>
+							<div className="selected-image-container">
+								<button
+									className="upload-image-button std-btn"
+									type="button"
+									onClick={handleVideoButtonClick}>
+									<img
+										alt="upload icon"
+										src="/assets/icons/icon-upload-video.svg"></img>
+								</button>
+							</div>
+
+							{/*Gets the file text from the type="file" button*/}
+							<p className="selected-file-text">
+								{mediaVideo ? mediaVideo.name : "Ingen fil valgt"}
+							</p>
 						</div>
-
-						{/*Gets the file text from the type="file" button*/}
-						<p className="selected-file-text">
-							{mediaVideo ? mediaVideo.name : "Ingen fil valgt"}
-						</p>
 					</div>
 					<button type="submit" className="std-btn">
 						Publisér Media Innlegg
