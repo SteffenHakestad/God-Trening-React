@@ -33,6 +33,7 @@ export default function Media() {
 						MediaText={post.mediaText}
 						ImagePath={`${post.image}`}
 						VideoPath={`${post.video}`}
+						createdAt={post.createdAt}
 
 						//ImagePath={post.image ? `uploads/${post.image}` : null}
 					/>

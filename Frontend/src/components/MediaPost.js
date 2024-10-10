@@ -6,11 +6,22 @@ export default function MediaPost({
 	MediaText,
 	ImagePath,
 	VideoPath,
+	createdAt,
 }) {
+	const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
 	return (
 		<>
 			<div className="media-container">
-				<h1>{MediaTitle}</h1>
+				<div className="header-container">
+					<div className="left-empty-space"></div>
+					<h1>{MediaTitle}</h1>
+					<h2 className="date-display">{formattedDate}</h2>
+				</div>
+
 				<div className="h-media-divider"></div>
 				<Linkify>
 					<p className="media-text-content">{MediaText}</p>
