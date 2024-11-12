@@ -130,6 +130,7 @@ export default function ContactMailToComponent() {
 						<input
 							className="submit-mail-btn std-btn"
 							type="submit"
+							onSubmit={handleSubmit}
 							value="Send"></input>
 					</div>
 				</form>

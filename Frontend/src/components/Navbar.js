@@ -42,6 +42,21 @@ function CustomLink({ to, children, t, ...props }) {
 	);
 }
 
+// function CustomLink({ to, children, t, ...props }) {
+// 	const resolvedPath = useResolvedPath(to);
+// 	const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+// 	return (
+// 		<li>
+// 			<Link
+// 				to={to}
+// 				{...props}
+// 				className={`navbar-link ${isActive ? "active" : ""}`}>
+// 				{children}
+// 			</Link>
+// 		</li>
+// 	);
+// }
+
 // //Function to detect if the page is scrolled.
 // window.onscroll = function() {
 //     scrollFunction();

@@ -82,7 +82,6 @@ app.post(
 			mediaText,
 			image: imagePath,
 			video: videoPath,
-			createdAt,
 		});
 
 		try {

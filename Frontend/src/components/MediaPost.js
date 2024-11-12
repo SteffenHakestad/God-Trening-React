@@ -16,7 +16,7 @@ export default function MediaPost({
 	return (
 		<>
 			<div className="media-container">
-				<div className="header-container">
+				<div className="post-header-container">
 					<div className="left-empty-space"></div>
 					<h1>{MediaTitle}</h1>
 					<h2 className="date-display">{formattedDate}</h2>
