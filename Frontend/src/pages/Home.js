@@ -4,6 +4,8 @@ import ServicesComponent from "../components/ServicesComponent";
 import MediaPostPreviewComponent from "../components/MediaPostPreviewComponent";
 import AboutComponent from "../components/AboutComponent";
 
+import UnderConstructionComponent from "../components/UnderConstructionComponent";
+
 export default function Home() {
 	const [posts, setPosts] = useState([]);
 	const [currentPost, setCurrentPost] = useState(0);
@@ -36,7 +38,6 @@ export default function Home() {
 			<HeroImageComponent />
 			<ServicesComponent />
 			<AboutComponent />
-
 			{/* Media post preview container. Only show if post exists*/}
 			{posts.length > 0 && (
 				<div id="mediapost-preview-home-container">
