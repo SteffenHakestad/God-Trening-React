@@ -6,24 +6,25 @@
     text-decoration: none;
 }
 #under-construction{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    position: relative;
+    display: inline-block;
     
 }
 #under-construction img{
-    object-fit: contain;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 #under-construction-btn{
     position: absolute;
-    top: 50%;
+    top: 58%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    background-color: red;
-    width: 10px;
-    height: 10px;
-    border: none;
+    border: 1px solid black;
+    background-color: transparent;
 }
 body{
     background-color: white;
@@ -409,6 +410,7 @@ body{
     display: flex;
     flex-direction: column;
     margin: 2rem;
+    list-style: none;
 }
 .footer-inner-container h1{
     font-size: 2.5rem;
@@ -418,9 +420,12 @@ body{
     text-align: left;
 }
 
-.footer-inner-container a{
+.footer-page-links{
+    display: flex;
+    align-items: center;
     text-align: left;
     font-size: 2rem;
+    color: white;
 }
 .horizontal-footer{
     display: flex;
@@ -440,9 +445,6 @@ body{
     justify-content: left;
     align-items: center;
     margin-top: 1rem;
-}
-.footer-inner-container a:visited{
-    color: white;
 }
 
 .h-footer-divider{
@@ -518,7 +520,7 @@ body{
         flex-direction: column;
         justify-content: center;
     }
-    .horizontal-index-footer a {
+    .horizontal-index-footer div {
         font-size: 1.5rem;
 
     }
@@ -1358,6 +1360,7 @@ body{
     align-items: center;
     flex-direction: column;
     padding: var(--container-margin);
+    margin-bottom: 5rem;
 }
 
 .post-header-container {
@@ -1374,7 +1377,7 @@ body{
     font-family: "Bellota";
     position: absolute;
     left: 50%;
-    transform: translateX(-50%); /* Center the h1 */
+    transform: translateX(-50%);
 }
 
 .date-display {
@@ -1385,7 +1388,7 @@ body{
 }
 
 .left-empty-space {
-    width: 33%; /* Adjust based on how much space you want to leave on the left */
+    width: 33%; 
 }
 
 .media-text-content {
@@ -1408,7 +1411,6 @@ body{
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     width: 100%;
-    max-height: 500px;
     gap: 2rem;
 }
 
@@ -1446,6 +1448,16 @@ body{
     margin: 2rem 0rem 5rem 0rem;
 }
 
+
+@media (max-width: 1500px) {
+    .media-attachment-container{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+    }
+}
 /*End of Media component*/
 
 
