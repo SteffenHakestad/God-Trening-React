@@ -18,38 +18,41 @@ import Dieting from "./pages/Dieting.js";
 import { Route, Routes } from "react-router-dom";
 
 import UnderConstructionComponent from "./components/UnderConstructionComponent.js";
+import ScrollToTop from "./components/ScrollToTopComponent.js";
 
 export default function App() {
-  const [construction, setConstruction] = useState(true);
+	const [construction, setConstruction] = useState(false); //Set this to true to add "underConstructionComp"
 
-  return (
-    <>
-      {construction ? (
-        <>
-          <UnderConstructionComponent setConstruction={setConstruction} />
-        </>
-      ) : (
-        <>
-          <Navbar />
-          <MobileNavbar />
-          <div className="container">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/media" element={<Media />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/GTadmin" element={<Admin />} />
+	return (
+		<>
+			{/* If construction is true display the "UnderConstructionComponent", if not display everything else. */}
+			{construction ? (
+				<>
+					<UnderConstructionComponent setConstruction={setConstruction} />
+				</>
+			) : (
+				<>
+					<Navbar />
+					<MobileNavbar />
+					<div className="container">
+						<ScrollToTop />
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/home" element={<Home />} />
+							<Route path="/services" element={<Services />} />
+							<Route path="/media" element={<Media />} />
+							<Route path="/contact" element={<Contact />} />
+							<Route path="/GTadmin" element={<Admin />} />
 
-              <Route path="/course" element={<Course />} />
-              <Route path="/presentation" element={<Presentation />} />
-              <Route path="/consultant" element={<Consultant />} />
-              <Route path="/dieting" element={<Dieting />} />
-            </Routes>
-            <Footer />
-          </div>
-        </>
-      )}
-    </>
-  );
+							<Route path="/course" element={<Course />} />
+							<Route path="/presentation" element={<Presentation />} />
+							<Route path="/consultant" element={<Consultant />} />
+							<Route path="/dieting" element={<Dieting />} />
+						</Routes>
+						<Footer />
+					</div>
+				</>
+			)}
+		</>
+	);
 }

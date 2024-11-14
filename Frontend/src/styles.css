@@ -5,27 +5,7 @@
     font-family: 'Space Grotesk', sans-serif;
     text-decoration: none;
 }
-#under-construction{
-    position: relative;
-    display: inline-block;
-    
-}
-#under-construction img{
-    display: block;
-    width: 100%;
-    height: auto;
-}
-#under-construction-btn{
-    position: absolute;
-    top: 58%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 1px solid black;
-    background-color: transparent;
-}
+
 body{
     background-color: white;
 }
@@ -36,6 +16,31 @@ body{
     --primary-color: #f8c80d;
     --secondary-color: #db0262;
     --tirtiary-color: #977AAF;
+}
+/*Under construction elements.*/
+#under-construction {
+    position: relative;
+    display: inline-block;
+
+}
+
+#under-construction img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#under-construction-btn {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: transparent;
+    /* border: 1px solid black; */
+    border: none;
 }
 /* a:visited{
     color: white;
@@ -182,6 +187,7 @@ body{
     justify-content: space-between;
     background-color: white;
     width: 100%;
+    min-width: 300px;
     height: 5rem;
     padding: 0rem .8rem 0rem .8rem;
     flex-direction: row;
@@ -292,26 +298,22 @@ body{
 }
 @media (max-width: 500px){
     #mobile-navbar-title{
-        font-size: 4rem;
         margin-top: 0rem;
     }
 }
 @media (max-width: 400px){
     #mobile-navbar-title{
-        font-size: 3.9rem;
         margin-top: 0rem;
     }
 }
 @media (max-width: 350px){
     #mobile-navbar-title{
-        font-size: 3.2rem;
-        margin-top: .3rem;
+        margin-top: 0rem;
     }
 }
 @media (max-width: 300px){
     #mobile-navbar-title{
-        font-size: 2.5rem;
-        margin-top: 1rem;
+        margin-top: 0rem;
 
     }
 }
@@ -678,6 +680,32 @@ body{
         padding-left: 1rem;
     }
 }
+.hero-video-container{
+    width: 100%;
+    height: 700px;
+    margin-bottom: 2rem;
+
+}
+.hero-video {
+    width: 100%;
+    height: 700px;
+    object-fit: cover;
+}
+.hero-video-text-container{
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    color: white;
+}
+.hero-video-text-container h1 {
+    font-size: 7rem;
+    font-family: "Bellota";
+}
+
+.hero-video-text-container p {
+    font-size: 2rem;
+}
+
 
 /*Start of "About me*/
 .about-outer-container{
@@ -685,8 +713,9 @@ body{
     align-items: center;
     background-color: white;
     width: 100%;
-    height: 25rem;
     margin-top: 4rem;
+    height: 25rem;
+    /* padding: 1rem 0rem 1rem 0rem; */
 }
 .about-inner-container{
     display: flex;
@@ -694,6 +723,7 @@ body{
     width: 100%;
     height: 80%;
     color: var(--dark-gray);
+    
 }
 .about-inner-container h1{
     text-align: right;
@@ -708,9 +738,10 @@ body{
 .about-text-container{
     padding: 1rem 0rem 0rem 1rem;
     height: 100%;
-    width: 60%;
-    
+    width: 60%; 
+    margin-bottom: 1rem;
 }
+
 .about-image-container{
     display: flex;
     align-items: center;
@@ -742,32 +773,28 @@ body{
 
 @media (max-width: 1000px){
     .about-outer-container{
-        height: 20rem;
         margin-top: 4rem;
+        width: 100%;
     }
     .about-text-container{
-        height: 10rem;
-        padding: 1rem 2rem 0rem 1rem;
+        width: 100%;
     }
     .about-inner-container{
         height: 100%;
-        font-size: 1rem;
+    }
+    .about-inner-container h1 {
+        font-size: 3rem;
+        text-align: left;
+        margin-bottom: 1rem;
     }
     .about-inner-container p {
-        font-size: 1.2rem;
-        margin-left: 1rem;
+        font-size: 1rem;
+        margin-left: 0rem;
     }
     .about-image-container{
         display: none;
     }
-    .about-text-container{
-        padding: 1rem 1rem 0rem 1rem;
-        width: 100%; 
-    }
-    .about-inner-container h1{
-        font-size: 3rem;
-        margin-bottom: 1rem;
-    }
+
 }
 /*End of "About me*/
 /*Start of Media Preview component*/

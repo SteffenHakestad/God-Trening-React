@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Header() {
+export default function HeroImageComponent() {
 	return (
 		<>
 			<div className="hero-img-container" id="large-hero">

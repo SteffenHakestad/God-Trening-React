@@ -9,8 +9,8 @@ export default function ServicesComponent() {
 						<h1>Guri Brekke</h1>
 						<p>
 							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-							varius luctus dignissim. Mauris vehicula erat id orci faucibus, ac
-							porttitor mauris accumsan. Quisque tellus est, pellentesque ut
+							varius luctus dignissim. Mauris vehicula erat id orci faucibus,
+							acq porttitor mauris accumsan. Quisque tellus est, pellentesque ut
 							ornare quis, posuere ornare massa. Suspendisse quis orci
 							hendrerit."
 						</p>
