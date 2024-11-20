@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 // import HeroImageComponent from "../components/HeroImageComponent";
-import HeroVideoComponent from "../components/HeroVideoComponent";
+//import HeroVideoComponent from "../components/HeroVideoComponent";
 
 import ServicesComponent from "../components/ServicesComponent";
 import MediaPostPreviewComponent from "../components/MediaPostPreviewComponent";
@@ -12,11 +12,23 @@ export default function Home() {
 	const [currentPost, setCurrentPost] = useState(0);
 
 	useEffect(() => {
+		const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost";
+
 		// Fetch data from the backend
-		fetch("/api/posts")
+		fetch(`http://${SERVER_IP}:3001/api/posts`)
 			.then((response) => response.json())
-			.then((data) => setPosts(data))
-			.catch((error) => console.error("Error fetching data:", error));
+			.then((data) => {
+				// Normalize paths for images and videos
+				const normalizedData = data.map((post) => ({
+					...post,
+					image: post.image?.replace(/\\/g, "/"),
+					video: post.video?.replace(/\\/g, "/"),
+				}));
+				setPosts(normalizedData);
+			})
+			.catch((error) =>
+				console.error("Error fetching PreviewMediaPost:", error)
+			);
 	}, []);
 
 	//Function to cycle between post previews
@@ -67,7 +79,10 @@ export default function Home() {
 								key={posts[currentPost]._id}
 								MediaTitle={posts[currentPost].headline}
 								MediaText={posts[currentPost].mediaText}
-								ImagePath={`${posts[currentPost].image}`}
+								ImagePath={`http://${
+									process.env.REACT_APP_SERVER_IP || "localhost"
+								}:3001/${posts[currentPost].image}`}
+								// ImagePath={`${posts[currentPost].image}`}
 							/>
 						</div>
 

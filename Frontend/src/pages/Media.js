@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import MediaPost from "../components/MediaPost";
-
 export default function Media() {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
+		const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost";
+
 		// Fetch data from the backend
-		fetch("/api/posts") //fetch("http://localhost:3001/api/posts")
+		fetch(`http://${SERVER_IP}:3001/api/posts`)
 			.then((response) => response.json())
-			.then((data) => setPosts(data))
+			.then((data) => {
+				// Normalize paths for images and videos
+				const normalizedData = data.map((post) => ({
+					...post,
+					image: post.image?.replace(/\\/g, "/"),
+					video: post.video?.replace(/\\/g, "/"),
+				}));
+				setPosts(normalizedData);
+			})
 			.catch((error) => console.error("Error fetching data:", error));
 	}, []);
 
@@ -31,11 +40,15 @@ export default function Media() {
 						key={post._id}
 						MediaTitle={post.headline}
 						MediaText={post.mediaText}
-						ImagePath={`${post.image}`}
-						VideoPath={`${post.video}`}
+						ImagePath={`http://${
+							process.env.REACT_APP_SERVER_IP || "localhost"
+						}:3001/${post.image}`}
+						VideoPath={`http://${
+							process.env.REACT_APP_SERVER_IP || "localhost"
+						}:3001/${post.video}`}
+						// ImagePath={`${post.image}`}
+						// VideoPath={`${post.video}`}
 						createdAt={post.createdAt}
-
-						//ImagePath={post.image ? `uploads/${post.image}` : null}
 					/>
 				))}
 			</div>

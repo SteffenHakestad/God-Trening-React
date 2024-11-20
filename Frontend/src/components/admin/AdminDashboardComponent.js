@@ -2,6 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost"; // Fallback to localhost
+
 export default function AdminDashboardComponent() {
 	//Get ref to DOM elements
 	const publishContainer = useRef(null);
@@ -112,11 +114,15 @@ export default function AdminDashboardComponent() {
 		// }
 
 		try {
-			const response = await axios.post("/api/posts", formData, {
-				headers: {
-					"Content-Type": "multipart/form-data",
-				},
-			});
+			const response = await axios.post(
+				`http://${SERVER_IP}:3001/api/posts`,
+				formData,
+				{
+					headers: {
+						"Content-Type": "multipart/form-data",
+					},
+				}
+			);
 			console.log("Post created:", response.data);
 
 			handleSuccess();
