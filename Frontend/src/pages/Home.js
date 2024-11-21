@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-// import HeroImageComponent from "../components/HeroImageComponent";
-//import HeroVideoComponent from "../components/HeroVideoComponent";
+import HeroImageComponent from "../components/HeroImageComponent";
+import HeroVideoComponent from "../components/HeroVideoComponent";
 
 import ServicesComponent from "../components/ServicesComponent";
 import MediaPostPreviewComponent from "../components/MediaPostPreviewComponent";
@@ -10,6 +10,8 @@ import AboutComponent from "../components/AboutComponent";
 export default function Home() {
 	const [posts, setPosts] = useState([]);
 	const [currentPost, setCurrentPost] = useState(0);
+	//Set source for Hero video.
+	const HeroVideoPath = "/assets/videos/StockWorkoutVideo.mp4";
 
 	useEffect(() => {
 		const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost";
@@ -18,7 +20,7 @@ export default function Home() {
 		fetch(`http://${SERVER_IP}:3001/api/posts`)
 			.then((response) => response.json())
 			.then((data) => {
-				// Normalize paths for images and videos
+				// Normalize paths for images and video
 				const normalizedData = data.map((post) => ({
 					...post,
 					image: post.image?.replace(/\\/g, "/"),
@@ -48,14 +50,12 @@ export default function Home() {
 
 	return (
 		<>
-			{/* <HeroVideoComponent HeroVideoPath="/assets/videos/StockWorkoutVideo.mp4" /> */}
-
-			{/* Renders Hero Image instead of Hero Video if the video file is not present */}
-			{/* {HeroVideoPath ? (
-				<HeroImageComponent />
+			{/* Render HeroVideoComponent if HeroVideoPath is valid, otherwise render HeroImageComponent */}
+			{HeroVideoPath ? (
+				<HeroVideoComponent HeroVideoPath={HeroVideoPath} />
 			) : (
-				<HeroVideoComponent HeroVideoPath="/assets/videos/StockWorkoutVideo.mp4" />
-			)} */}
+				<HeroImageComponent />
+			)}
 
 			<ServicesComponent />
 			<AboutComponent />
