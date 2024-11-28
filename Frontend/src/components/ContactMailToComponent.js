@@ -1,156 +1,147 @@
 import React, { useState } from "react";
 
 export default function ContactMailToComponent() {
-  //Create and set default state of the inputs
-  const [subject, setSubject] = useState("");
-  const [senderName, setSenderName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [message, setMessage] = useState("");
+	//Create and set default state of the inputs
+	const [subject, setSubject] = useState("");
+	const [senderName, setSenderName] = useState("");
+	const [email, setEmail] = useState("");
+	const [phone, setPhone] = useState("");
+	const [message, setMessage] = useState("");
 
-  //Detects changes in input fields
-  const handleSubjectChange = (e) => {
-    setSubject(e.target.value);
-  };
-  const handleNameChange = (e) => {
-    setSenderName(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-  const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
-  };
-  const handleMessageChange = (e) => {
-    setMessage(e.target.value);
-  };
+	//Detects changes in input fields
+	const handleSubjectChange = (e) => {
+		setSubject(e.target.value);
+	};
+	const handleNameChange = (e) => {
+		setSenderName(e.target.value);
+	};
+	const handleEmailChange = (e) => {
+		setEmail(e.target.value);
+	};
+	const handlePhoneChange = (e) => {
+		setPhone(e.target.value);
+	};
+	const handleMessageChange = (e) => {
+		setMessage(e.target.value);
+	};
 
-  //Form submit function sending data to a google apps script, which in turn sends form data from the gmail account to the support account.
-  //Using Formsubmit.co now instead, but keepking this code here for now.
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
+	return (
+		<>
+			<div className="contact-header">
+				<h1>Kontakt</h1>
+				<div className="contact-header-container">
+					<img
+						alt="phone icon"
+						src="/assets/icons/icon-circle-phone.svg"
+						className="contact-header-icon"></img>
+					<div>922 26 557</div>
+				</div>
+				<div className="contact-header-container">
+					<img
+						alt="email icon"
+						src="/assets/icons/icon-circle-mail.svg"
+						className="contact-header-icon"></img>
+					<div>Godtrening@online.no</div>
+				</div>
+			</div>
 
-  //     const contactFormData = new URLSearchParams({
-  //       subject: subject,
-  //       name: senderName,
-  //       email: email,
-  //       phone: phone,
-  //       message: message,
-  //     });
-
-  //     const url =
-  //       "https://script.google.com/macros/s/AKfycbx6EZerkP8AIWN6m5BsP47UIyBKeVjO8kRgAOdNLfHSqzwzt_GmWZWvWjgpExTLHP-Q/exec";
-
-  //     try {
-  //       const response = await fetch(url, {
-  //         method: "POST",
-  //         body: contactFormData,
-  //         headers: {
-  //           "Content-Type": "application/x-www-form-urlencoded",
-  //         },
-  //       });
-
-  //       if (response.ok) {
-  //         const jsonResponse = await response.json();
-  //         console.log(jsonResponse);
-  //         console.log("Mail sent successfully!");
-  //       } else {
-  //         console.error("Error in sending mail", response.statusText);
-  //       }
-  //     } catch (error) {
-  //       console.error("Network error", error);
-  //     }
-  //   };
-
-  return (
-    <>
-      <div className="contact-header">
-        <h1>Kontakt</h1>
-        <div className="contact-header-container">
-          <img
-            alt="phone icon"
-            src="/assets/icons/icon-circle-phone.svg"
-            className="contact-header-icon"
-          ></img>
-          <div>922 26 557</div>
-        </div>
-        <div className="contact-header-container">
-          <img
-            alt="email icon"
-            src="/assets/icons/icon-circle-mail.svg"
-            className="contact-header-icon"
-          ></img>
-          <div>Godtrening@online.no</div>
-        </div>
-      </div>
-
-      <div className="mailto-container">
-        <h1>Bestill tjenester eller kontakt meg!</h1>
-        <div className="divider"></div>
-        <form
-          id="mail-form"
-          action="https://formsubmit.co/5b06da5baf5c01b388ff73cdfe530242"
-          method="POST"
-        >
-          <div id="contact-info-container">
-            <input
-              className="input-field"
-              name="subject-input"
-              type="text"
-              placeholder="Emne"
-              value={subject}
-              onChange={handleSubjectChange}
-              required
-            ></input>
-            <input
-              className="input-field"
-              name="name-input"
-              type="text"
-              placeholder="Ditt Navn"
-              value={senderName}
-              onChange={handleNameChange}
-              required
-            ></input>
-            <input
-              className="input-field"
-              name="email-input"
-              type="email"
-              placeholder="E-post Adresse"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            ></input>
-            <input
-              className="input-field"
-              name="phone-input"
-              type="numeric"
-              placeholder="Telefonnummer"
-              value={phone}
-              onChange={handlePhoneChange}
-            ></input>
-          </div>
-          <div id="contact-message-container">
-            <textarea
-              className="input-field"
-              name="message-input"
-              type="text"
-              placeholder="Skriv din melding her!"
-              value={message}
-              onChange={handleMessageChange}
-              required
-            ></textarea>
-            <input
-              className="submit-mail-btn std-btn"
-              type="submit"
-              // onSubmit={handleSubmit}
-              value="Send"
-            ></input>
-          </div>
-        </form>
-      </div>
-    </>
-  );
+			<div className="mailto-container">
+				<h1>Bestill tjenester eller kontakt meg!</h1>
+				<div className="divider"></div>
+				<form
+					id="mail-form"
+					action="https://formsubmit.co/5b06da5baf5c01b388ff73cdfe530242"
+					method="POST">
+					<div id="contact-info-container">
+						<input
+							className="input-field"
+							name="Subject/Emne"
+							type="text"
+							placeholder="Emne"
+							value={subject}
+							onChange={handleSubjectChange}
+							required></input>
+						<input
+							className="input-field"
+							name="Name/Navn"
+							type="text"
+							placeholder="Ditt Navn"
+							value={senderName}
+							onChange={handleNameChange}
+							required></input>
+						<input
+							className="input-field"
+							name="Email/Epost"
+							type="email"
+							placeholder="E-post Adresse"
+							value={email}
+							onChange={handleEmailChange}
+							required></input>
+						<input
+							className="input-field"
+							name="Phone/Telefon"
+							type="numeric"
+							placeholder="Telefonnummer"
+							value={phone}
+							onChange={handlePhoneChange}></input>
+					</div>
+					<div id="contact-message-container">
+						<textarea
+							className="input-field"
+							name="Message/Melding"
+							type="text"
+							placeholder="Skriv din melding her!"
+							value={message}
+							onChange={handleMessageChange}
+							required></textarea>
+						<input
+							className="submit-mail-btn std-btn"
+							type="submit"
+							// onSubmit={handleSubmit}
+							value="Send"></input>
+					</div>
+				</form>
+			</div>
+		</>
+	);
 }
+
+//Form submit function sending data to a google apps script, which in turn sends form data from the gmail account to the support account.
+//Using Formsubmit.co now instead, but keepking this code here for now.
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+
+//     const contactFormData = new URLSearchParams({
+//       subject: subject,
+//       name: senderName,
+//       email: email,
+//       phone: phone,
+//       message: message,
+//     });
+
+//     const url =
+//       "https://script.google.com/macros/s/AKfycbx6EZerkP8AIWN6m5BsP47UIyBKeVjO8kRgAOdNLfHSqzwzt_GmWZWvWjgpExTLHP-Q/exec";
+
+//     try {
+//       const response = await fetch(url, {
+//         method: "POST",
+//         body: contactFormData,
+//         headers: {
+//           "Content-Type": "application/x-www-form-urlencoded",
+//         },
+//       });
+
+//       if (response.ok) {
+//         const jsonResponse = await response.json();
+//         console.log(jsonResponse);
+//         console.log("Mail sent successfully!");
+//       } else {
+//         console.error("Error in sending mail", response.statusText);
+//       }
+//     } catch (error) {
+//       console.error("Network error", error);
+//     }
+//   };
 
 //Code to send formdata to apps sscript, this is using xhr instrad of fetch
 // const handleSubmit = (e) => {

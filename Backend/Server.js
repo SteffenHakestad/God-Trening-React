@@ -11,11 +11,11 @@ const app = express();
 dotenv.config();
 
 //.env variables
-const MONGO_URI = process.env.MONGO_URI;
-const port = process.env.PORT;
-const jwtSecret = process.env.JWT_SECRET;
-const adminUsername = process.env.ADMIN_USERNAME;
-const adminPassword = process.env.ADMIN_PASSWORD;
+const MONGO_URI = process.env.REACT_APP_MONGO_URI;
+const port = process.env.REACT_APP_PORT;
+const jwtSecret = process.env.REACT_APP_JWT_SECRET;
+const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
+const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
 
 // Middleware
 app.use(bodyParser.json());
