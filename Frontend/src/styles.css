@@ -1075,6 +1075,7 @@ body{
     height: 4rem;
     background-color: var(--light-gray);
     color: var(--dark-gray);
+    outline-color: var(--primary-color);
 }
 #btn-container{
     justify-self: flex-end;
@@ -1568,6 +1569,7 @@ body{
     background-color: var(--light-gray);
     color: var(--dark-gray);
     margin: 1rem 0rem 1rem 1rem;
+    outline-color: var(--primary-color);
 }
 .login-btn-container{
     width: 100%;

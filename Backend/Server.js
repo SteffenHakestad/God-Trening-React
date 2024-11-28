@@ -16,7 +16,6 @@ const port = process.env.REACT_APP_PORT;
 const jwtSecret = process.env.REACT_APP_JWT_SECRET;
 const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
 const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
-
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
