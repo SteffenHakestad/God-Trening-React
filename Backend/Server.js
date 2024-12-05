@@ -11,11 +11,11 @@ const app = express();
 dotenv.config();
 
 //.env variables
-const MONGO_URI = process.env.REACT_APP_MONGO_URI;
-const port = process.env.REACT_APP_PORT;
-const jwtSecret = process.env.REACT_APP_JWT_SECRET;
-const adminUsername = process.env.REACT_APP_ADMIN_USERNAME;
-const adminPassword = process.env.REACT_APP_ADMIN_PASSWORD;
+const MONGO_URI = process.env.MONGO_URI;
+const port = process.env.PORT;
+const jwtSecret = process.env.JWT_SECRET;
+const adminUsername = process.env.ADMIN_USERNAME;
+const adminPassword = process.env.ADMIN_PASSWORD;
 // Middleware
 app.use(bodyParser.json());
 app.use(cors());
@@ -34,18 +34,23 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Connect to MongoDB
-mongoose
-	.connect(MONGO_URI, {
-		// useNewUrlParser: true, These two lines give deprecated warning, seems to work fine without.
-		// useUnifiedTopology: true
-	})
-	.then(() => {
-		console.log("Connected to MongoDB");
-	})
-	.catch((err) => {
-		console.error("Failed to connect to MongoDB", err);
-	});
+// Connect to MongoDB with retry every 5s if failed.
+const connectWithRetry = () => {
+	mongoose
+		.connect(MONGO_URI, {
+			// useNewUrlParser: true, These two lines give deprecated warning, seems to work fine without.
+			// useUnifiedTopology: true
+		})
+		.then(() => {
+			console.log("Connected to MongoDB");
+		})
+		.catch((err) => {
+			console.error("Failed to connect to MongoDB, retrying...", err);
+			setTimeout(connectWithRetry, 5000); // Retry every 5 seconds
+		});
+};
+//Run connect func
+connectWithRetry();
 
 // Define a schema and model
 const mediaPostSchema = new mongoose.Schema(

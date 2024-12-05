@@ -10,7 +10,7 @@ export default function Admin() {
 
 	const handleLogin = async (username, password) => {
 		try {
-			const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost";
+			const SERVER_IP = process.env.SERVER_IP || "localhost";
 			const res = await axios.post(`http://${SERVER_IP}:3001/api/auth/login`, {
 				username,
 				password,

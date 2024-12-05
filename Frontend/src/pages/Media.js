@@ -5,7 +5,7 @@ export default function Media() {
 	const [posts, setPosts] = useState([]);
 
 	useEffect(() => {
-		const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost";
+		const SERVER_IP = process.env.SERVER_IP || "localhost";
 
 		// Fetch data from the backend
 		fetch(`http://${SERVER_IP}:3001/api/posts`)
@@ -40,12 +40,12 @@ export default function Media() {
 						key={post._id}
 						MediaTitle={post.headline}
 						MediaText={post.mediaText}
-						ImagePath={`http://${
-							process.env.REACT_APP_SERVER_IP || "localhost"
-						}:3001/${post.image}`}
-						VideoPath={`http://${
-							process.env.REACT_APP_SERVER_IP || "localhost"
-						}:3001/${post.video}`}
+						ImagePath={`http://${process.env.SERVER_IP || "localhost"}:3001/${
+							post.image
+						}`}
+						VideoPath={`http://${process.env.SERVER_IP || "localhost"}:3001/${
+							post.video
+						}`}
 						// ImagePath={`${post.image}`}
 						// VideoPath={`${post.video}`}
 						createdAt={post.createdAt}

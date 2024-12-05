@@ -14,7 +14,7 @@ export default function Home() {
 	const HeroVideoPath = "/assets/videos/StockWorkoutVideo.mp4";
 
 	useEffect(() => {
-		const SERVER_IP = process.env.REACT_APP_SERVER_IP || "localhost";
+		const SERVER_IP = process.env.SERVER_IP || "localhost";
 
 		// Fetch data from the backend
 		fetch(`http://${SERVER_IP}:3001/api/posts`)
@@ -80,7 +80,7 @@ export default function Home() {
 								MediaTitle={posts[currentPost].headline}
 								MediaText={posts[currentPost].mediaText}
 								ImagePath={`http://${
-									process.env.REACT_APP_SERVER_IP || "localhost"
+									process.env.SERVER_IP || "localhost"
 								}:3001/${posts[currentPost].image}`}
 								// ImagePath={`${posts[currentPost].image}`}
 							/>
