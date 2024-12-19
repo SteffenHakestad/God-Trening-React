@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/God-Trening-React/static/css/main.b12f50be.css",
+    "main.js": "/God-Trening-React/static/js/main.08d0226e.js",
+    "static/media/StockPhoto.jpg": "/God-Trening-React/static/media/StockPhoto.9a78d0ada57723114d66.jpg",
+    "index.html": "/God-Trening-React/index.html",
+    "main.b12f50be.css.map": "/God-Trening-React/static/css/main.b12f50be.css.map",
+    "main.08d0226e.js.map": "/God-Trening-React/static/js/main.08d0226e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b12f50be.css",
+    "static/js/main.08d0226e.js"
+  ]
+}
