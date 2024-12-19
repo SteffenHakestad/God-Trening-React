@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import HeroImageComponent from "../components/HeroImageComponent";
 import HeroVideoComponent from "../components/HeroVideoComponent";
@@ -8,12 +9,15 @@ import MediaPostPreviewComponent from "../components/MediaPostPreviewComponent";
 import AboutComponent from "../components/AboutComponent";
 
 export default function Home() {
+	const { t } = useTranslation();
 	const [posts, setPosts] = useState([]);
 	const [currentPost, setCurrentPost] = useState(0);
 	//Set source for Hero video.
 	const HeroVideoPath = "/assets/videos/StockWorkoutVideo.mp4";
 
 	useEffect(() => {
+		//Set up Server IP as an env variable with fallback to localhost.
+		//(We are using localhost so the variable is not declared in the .env file, but I just put this here just in case this changes in the future and we need to reach a remote server)
 		const SERVER_IP = process.env.SERVER_IP || "localhost";
 
 		// Fetch data from the backend
@@ -56,14 +60,13 @@ export default function Home() {
 			) : (
 				<HeroImageComponent />
 			)}
-
 			<ServicesComponent />
 			<AboutComponent />
 			{/* Media post preview container. Only show if post exists*/}
 			{posts.length > 0 && (
 				<div id="mediapost-preview-home-container">
 					<div className="h-media-divider"></div>
-					<h1 id="preview-header-text">Nyeste Media Innlegg:</h1>
+					<h1 id="preview-header-text">{t("newest-media-post")}:</h1>
 
 					<div id="mediapost-preview-home-inner-container">
 						<button
@@ -95,6 +98,8 @@ export default function Home() {
 								src="\assets\icons\icon-right-arrow.svg"></img>
 						</button>
 					</div>
+
+					{/* Different look on mobile, same functionality. Toggle between them in CSS*/}
 					<div className="mobile-cycle-post-container">
 						<button
 							className="mobile-cycle-post-btn"
@@ -103,7 +108,7 @@ export default function Home() {
 								className="cycle-post-svg"
 								alt="previous icon"
 								src="\assets\icons\icon-left-arrow.svg"></img>
-							<div>Forrige Post</div>
+							<div>{t("prev-post")}</div>
 						</button>
 						<button
 							className="mobile-cycle-post-btn"
@@ -112,7 +117,7 @@ export default function Home() {
 								className="cycle-post-svg"
 								alt="next icon"
 								src="\assets\icons\icon-right-arrow.svg"></img>
-							<div>Neste Post</div>
+							<div>{t("next-post")}</div>
 						</button>
 					</div>
 

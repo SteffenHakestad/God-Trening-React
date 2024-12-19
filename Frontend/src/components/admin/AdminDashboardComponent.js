@@ -1,8 +1,10 @@
 import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function AdminDashboardComponent() {
+	const { t } = useTranslation();
 	//Get ref to DOM elements
 	const publishContainer = useRef(null);
 	const supportContainer = useRef(null);
@@ -152,13 +154,13 @@ export default function AdminDashboardComponent() {
 
 	return (
 		<div id="admin-dashboard">
-			<h1>Administrator Dashboard</h1>
+			<h1>{t("admin-dashboard")}</h1>
 			<div className="admin-divider"></div>
 
 			<button
 				className="dashboard-collapse-btn"
 				onClick={() => expandInfo("Publish")}>
-				Publisér nytt blogg/media innlegg
+				{t("publish-new")}
 				<img
 					alt="expand icon"
 					src="/assets/icons/icon-right-arrow.svg"
@@ -185,7 +187,7 @@ export default function AdminDashboardComponent() {
 						className="input-field"
 						name="headline-input"
 						type="text"
-						placeholder="Overskrift"
+						placeholder={t("media-headline")}
 						value={headline}
 						onChange={handleHeadlineChange}
 						maxLength="50"
@@ -194,7 +196,7 @@ export default function AdminDashboardComponent() {
 						className="input-field"
 						name="message-input"
 						type="text"
-						placeholder="Skriv inn hovedtekst for media innlegg!"
+						placeholder={t("media-text")}
 						value={mediaText}
 						onChange={handleMediaTextChange}
 						required></textarea>
@@ -202,7 +204,7 @@ export default function AdminDashboardComponent() {
 					<div id="file-upload-container">
 						{/* IMAGE UPLOAD */}
 						<div className="image-upload-container">
-							<label htmlFor="media-image-upload">Last opp ett bilde</label>
+							<label htmlFor="media-image-upload">{t("upload-pic")}</label>
 							<input
 								type="file"
 								name="media-image-upload"
@@ -243,14 +245,14 @@ export default function AdminDashboardComponent() {
 							</div>
 							{/*Gets the file text from the type="file" button*/}
 							<p className="selected-file-text">
-								{mediaImage ? mediaImage.name : "Ingen fil valgt"}
+								{mediaImage ? mediaImage.name : t("no-file-chosen")}
 							</p>
 						</div>
 						<div className="v-upload-divider"></div>
 
 						{/* VIDEO UPLOAD */}
 						<div className="image-upload-container">
-							<label htmlFor="media-video-upload">Og/eller en video</label>
+							<label htmlFor="media-video-upload">{t("upload-video")}</label>
 							<input
 								type="file"
 								name="media-video-upload"
@@ -272,12 +274,12 @@ export default function AdminDashboardComponent() {
 
 							{/*Gets the file text from the type="file" button*/}
 							<p className="selected-file-text">
-								{mediaVideo ? mediaVideo.name : "Ingen fil valgt"}
+								{mediaVideo ? mediaVideo.name : t("no-file-chosen")}
 							</p>
 						</div>
 					</div>
 					<button type="submit" className="std-btn">
-						Publisér Media Innlegg
+						{t("publish-media")}
 					</button>
 				</form>
 			</div>
@@ -285,7 +287,7 @@ export default function AdminDashboardComponent() {
 			<button
 				className="dashboard-collapse-btn"
 				onClick={() => expandInfo("Support")}>
-				Teknisk Support
+				{t("technical-support")}
 				<img
 					alt="expand icon"
 					src="/assets/icons/icon-right-arrow.svg"
@@ -306,7 +308,7 @@ export default function AdminDashboardComponent() {
 				className="dashboard-collapse-container"
 				id="collapse-3"
 				ref={supportContainer}>
-				<div>For teknisk support ta kontakt med:</div>
+				<div>{t("technical-contact")}</div>
 				<div id="collapse-3-container">
 					<img alt="email icon" src="/assets/icons/icon-email.svg"></img>
 					<div>
@@ -322,7 +324,9 @@ export default function AdminDashboardComponent() {
 
 			{/* Media Post Success Popup */}
 			{isSuccessPopupOpen && (
-				<div className="success-failure-popup-overlay">
+				<div
+					className="success-failure-popup-overlay"
+					onClick={handlePopupClose}>
 					<div className="success-failure-container">
 						<div className="close-success-failure-popup-btn-container">
 							<button
@@ -335,16 +339,18 @@ export default function AdminDashboardComponent() {
 								/>
 							</button>
 						</div>
-						<p>Media post lastet opp!</p>
+						<p>{t("media-uploaded")}</p>
 						<Link to="/media">
-							<button className="std-btn">Gå til Media siden</button>
+							<button className="std-btn">{t("goto-media")}</button>
 						</Link>
 					</div>
 				</div>
 			)}
 			{/* Media Post Failure Popup */}
 			{isFailurePopupOpen && (
-				<div className="success-failure-popup-overlay">
+				<div
+					className="success-failure-popup-overlay"
+					onClick={handlePopupClose}>
 					<div className="success-failure-container">
 						<div className="close-success-failure-popup-btn-container">
 							<button
@@ -357,7 +363,7 @@ export default function AdminDashboardComponent() {
 								/>
 							</button>
 						</div>
-						<p>Det var et problem med å poste media innlegg.</p>
+						<p>{t("media-uploaded-failed")}</p>
 					</div>
 				</div>
 			)}

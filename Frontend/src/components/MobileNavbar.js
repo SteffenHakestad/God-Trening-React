@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useAuth } from "../components/AuthContext";
 
 export default function MobileNavbar() {
+	const { isLoggedIn } = useAuth();
+	const { t } = useTranslation();
 	const [isMobileLinksVisible, setIsMobileLinksVisible] = useState(false);
 
 	const toggleMobileLinks = () => {
@@ -29,19 +33,20 @@ export default function MobileNavbar() {
 				id="navbar-mobile-links-container"
 				style={{ display: isMobileLinksVisible ? "flex" : "none" }}>
 				<ul className="navbar-mobile-link-list" onClick={toggleMobileLinks}>
-					<CustomLink to="/services" className="navbar-mobile-link">
-						Tjenester
+					<CustomLink to="/services" className="navbar-link">
+						{t("services")}
 					</CustomLink>
-					<CustomLink to="/media" className="navbar-mobile-link">
-						Media
+					<CustomLink to="/media" className="navbar-link">
+						{t("media")}
 					</CustomLink>
-					<CustomLink to="/contact" className="navbar-mobile-link">
-						Kontakt
+					<CustomLink to="/contact" className="navbar-link">
+						{t("contact")}
 					</CustomLink>
-					{/* Remove this before production */}
-					<CustomLink to="/GTadmin" className="navbar-mobile-link">
-						Admin
-					</CustomLink>
+					{isLoggedIn && (
+						<CustomLink to="/GTadmin" className="navbar-link">
+							Admin
+						</CustomLink>
+					)}
 				</ul>
 			</div>
 		</nav>

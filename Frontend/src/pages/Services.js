@@ -1,15 +1,16 @@
 import React from "react";
 import ServicesComponent from "../components/ServicesComponent";
 import Header from "../components/Header";
+import { useTranslation } from "react-i18next";
 
 export default function Services() {
+	const { t } = useTranslation();
 	return (
 		<>
 			<Header
-				HeaderHeadline={"Tjenester"}
+				HeaderHeadline={t("services")}
 				HeaderLink={"God Trening"}
-				HeaderLink2={"Tjenester"}
-				// HeaderLink3={"Tjenester"}
+				HeaderLink2={t("services")}
 				HeaderAnchor={"/"}
 				HeaderAnchor2={"/services"}
 				Display1={"block"}

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function AdminLoginComponent({ onLogin }) {
+	const { t } = useTranslation();
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -17,10 +19,10 @@ export default function AdminLoginComponent({ onLogin }) {
 				<div id="admin-login-container">
 					<div className="label-container admin-inner-container">
 						<label className="login-label" htmlFor="username">
-							Admin Brukernavn:
+							{t("admin-username")}
 						</label>
 						<label className="login-label" htmlFor="password">
-							Admin Passord:{" "}
+							{t("admin-password")}
 						</label>
 					</div>
 					<div className="input-container admin-inner-container">
@@ -30,7 +32,7 @@ export default function AdminLoginComponent({ onLogin }) {
 							type="text"
 							id="username"
 							name="username"
-							placeholder="Brukernavn"
+							placeholder={t("username")}
 						/>
 						<input
 							onChange={(e) => setPassword(e.target.value)}
@@ -38,12 +40,12 @@ export default function AdminLoginComponent({ onLogin }) {
 							type="password"
 							id="password"
 							name="password"
-							placeholder="Passord"
+							placeholder={t("password")}
 						/>
 					</div>
 				</div>
 				<button className="login-btn std-btn" type="submit">
-					Logg inn
+					{t("login")}
 				</button>
 			</form>
 		</div>

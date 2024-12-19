@@ -1,12 +1,29 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+// import { toast } from "react-hot-toast";
+
+//Importing the gif because if I don't do it this way the gif doesn't load in time for the popup
+//import loadingGif from "/assets/icons/icon-loading.gif";
 
 export default function ContactMailToComponent() {
+	const { t } = useTranslation();
 	//Create and set default state of the inputs
 	const [subject, setSubject] = useState("");
 	const [senderName, setSenderName] = useState("");
 	const [email, setEmail] = useState("");
 	const [phone, setPhone] = useState("");
 	const [message, setMessage] = useState("");
+
+	const [isSendingPopup, setSendingPopup] = useState(false);
+
+	// Handle popup overlay
+	const handlePopup = () => {
+		if (isSendingPopup === true) {
+			setSendingPopup(false);
+		} else if (isSendingPopup === false) {
+			setSendingPopup(true);
+		}
+	};
 
 	//Detects changes in input fields
 	const handleSubjectChange = (e) => {
@@ -28,7 +45,7 @@ export default function ContactMailToComponent() {
 	return (
 		<>
 			<div className="contact-header">
-				<h1>Kontakt</h1>
+				<h1>{t("contact")}</h1>
 				<div className="contact-header-container">
 					<img
 						alt="phone icon"
@@ -46,8 +63,8 @@ export default function ContactMailToComponent() {
 			</div>
 
 			<div className="mailto-container">
-				<h1>Bestill tjenester eller kontakt meg!</h1>
-				<div className="divider"></div>
+				<h1>{t("contact-me")}</h1>
+				<div className="contact-divider"></div>
 				<form
 					id="mail-form"
 					action="https://formsubmit.co/5b06da5baf5c01b388ff73cdfe530242"
@@ -57,7 +74,7 @@ export default function ContactMailToComponent() {
 							className="input-field"
 							name="Subject/Emne"
 							type="text"
-							placeholder="Emne"
+							placeholder={t("topic")}
 							value={subject}
 							onChange={handleSubjectChange}
 							required></input>
@@ -65,7 +82,7 @@ export default function ContactMailToComponent() {
 							className="input-field"
 							name="Name/Navn"
 							type="text"
-							placeholder="Ditt Navn"
+							placeholder={t("your-name")}
 							value={senderName}
 							onChange={handleNameChange}
 							required></input>
@@ -73,7 +90,7 @@ export default function ContactMailToComponent() {
 							className="input-field"
 							name="Email/Epost"
 							type="email"
-							placeholder="E-post Adresse"
+							placeholder={t("your-email")}
 							value={email}
 							onChange={handleEmailChange}
 							required></input>
@@ -81,7 +98,7 @@ export default function ContactMailToComponent() {
 							className="input-field"
 							name="Phone/Telefon"
 							type="numeric"
-							placeholder="Telefonnummer"
+							placeholder={t("your-phone")}
 							value={phone}
 							onChange={handlePhoneChange}></input>
 					</div>
@@ -90,18 +107,31 @@ export default function ContactMailToComponent() {
 							className="input-field"
 							name="Message/Melding"
 							type="text"
-							placeholder="Skriv din melding her!"
+							placeholder={t("your-message")}
 							value={message}
 							onChange={handleMessageChange}
 							required></textarea>
 						<input
 							className="submit-mail-btn std-btn"
 							type="submit"
-							// onSubmit={handleSubmit}
+							onClick={() => handlePopup()}
 							value="Send"></input>
 					</div>
 				</form>
 			</div>
+			{/*Sending post popup */}
+			{isSendingPopup && (
+				<div className="success-failure-popup-overlay">
+					<div className="success-failure-container">
+						<p>{t("sending-contact-post")}</p>
+						<img
+							src="/assets/icons/icon-loading.gif"
+							alt="loading icon"
+							id="loading-icon"
+						/>
+					</div>
+				</div>
+			)}
 		</>
 	);
 }

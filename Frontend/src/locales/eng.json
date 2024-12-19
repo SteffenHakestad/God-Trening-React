@@ -1,0 +1,67 @@
+{
+    "hero-video-title": "Video Title",
+    "hero-video-text": "Video Text",
+
+    "services": "Services",
+    "media": "Media",
+    "contact": "Contact",
+
+    "services-guri": "Guri Brekke's services",
+    "explore": "Explore",
+
+    "home": "Home",
+    "course": "Courses",
+    "presentation": "Presentations",
+    "diet-guidance": "Diet Guidance",
+    "consultant": "Consultant Services",
+
+    "about-guri": "About Guri Brekke",
+    "about-text":"Lorem ipsum dolor sit amet. Vivamus varius luctus dignissim. Mauris vehicula erat id orci faucibus, acq porttitor mauris accumsan. Quisque tellus est, pellentesque ut ornare quis, posuere ornare massa. Suspendisse quis orci hendrerit.",
+
+
+    "newest-media-post": "Most recent media post",
+    "read-more": "Read more",
+    "next-post": "Next post",
+    "prev-post": "Previous post",
+
+
+    "order-services": "You can order the following services here:",
+
+    "contact-me":"Order services or contact me!",
+    "topic": "Topic",
+    "your-name":"Your Name",
+    "your-email":"Your Email",
+    "your-phone":"Your Phone Number",
+    "your-message":"Write your message here!",
+
+    "media-post":"Media Post",
+    "delete-confirm":"Are you sure you want to delete this post?",
+    "post-deleted":"Post deleted",
+    "yes":"Yes",
+    "no":"No",
+
+    "admin-username":"Admin Username:",
+    "admin-password":"Admin Password:",
+    "username":"Username",
+    "password":"Password",
+    "login":"Log in",
+
+    "admin-dashboard":"Admin Dashboard",
+    "publish-new":"Publish new media post",
+    "media-headline":"Headline",
+    "media-text":"Enter text for media post",
+    "upload-pic":"Upload a picture",
+    "upload-video":"And/or a video",
+    "no-file-chosen":"No file chosen",
+    "publish-media":"Publish Media Post",
+
+    "technical-support":"Technical Support",
+    "technical-contact":"For technical support contact:",
+
+    "invalid-credentials":"Wrong username or password",
+    "sending-contact-post":"Submitting post, please wait",
+    "back":"Back",
+
+    "change-language": "Change language"
+
+}

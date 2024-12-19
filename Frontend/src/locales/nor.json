@@ -1,0 +1,71 @@
+{
+    "hero-video-title": "Video Tittel",
+    "hero-video-text": "Video Tekst",
+
+    "services": "Tjenester",
+    "media": "Media",
+    "contact": "Kontakt",
+
+    "services-guri": "Tjenestene til Guri Brekke",
+    "explore": "Utforsk",
+
+    "home": "Hjem",
+    "course": "Kurs",
+    "presentation": "Foredrag",
+    "diet-guidance": "Kostveiledning",
+    "consultant": "Konsulenttjenester",
+
+    "about-guri": "Om Guri Brekke",
+    "about-text":"Guri Brekke er faglig leder innen trening på Haukeland universitetssjukehus. Hun er Helse- og treningsfysiolog, med master og har psykologi utdanning fra universitetet i Bergen",
+
+    "newest-media-post": "Nyeste Media Post",
+    "read-more": "Les mer",
+    "next-post": "Neste post",
+    "prev-post": "Forrige post",
+
+    "order-services": "Du kan bestille følgende tjeneste ved å ta kontakt på:",
+
+    "contact-me":"Bestill tjenester eller kontakt meg!",
+    "topic": "Emne",
+    "your-name":"Ditt Navn",
+    "your-email":"Din E-post adresse",
+    "your-phone":"Ditt tlf nr",
+    "your-message":"Skriv din melding her!",
+
+    "media-post":"Media Innlegg",
+    "delete-confirm":"Er du sikker på at du vil slette dette innlegget?",
+    "post-deleted":"Media post er slettet",
+
+    "yes":"Ja",
+    "no":"Nei",
+
+    "admin-username":"Admin Brukernavn:",
+    "admin-password":"Admin Passord:",
+    "username":"Brukernavn",
+    "password":"Passord",
+    "login":"Logg inn",
+
+    "admin-dashboard":"Admin Dashbord",
+    "publish-new":"Publisér nytt media innlegg",
+    "media-headline":"Overskrift",
+    "media-text":"Skriv inn hovedtekst for media innlegg!",
+    "upload-pic":"Last opp et bilde",
+    "upload-video":"Og/eller en video",
+    "no-file-chosen":"Ingen fil valgt",
+    "publish-media":"Publisér Media Innlegg",
+
+    "technical-support":"Teknisk Hjelp",
+    "technical-contact":"For teknisk support ta kontakt med:",
+
+    "invalid-credentials":"Feil Brukernavn eller Passord",
+    "sending-contact-post":"Sender melding, vennligst vent",
+
+    "back":"Tilbake",
+
+    "media-uploaded":"Media post lastet opp!",
+    "media-uploaded-failed":"Det var et problem med å poste media innlegg.",
+    "goto-media":"Gå til media siden.",
+
+    "change-language": "Bytt språk"
+
+}

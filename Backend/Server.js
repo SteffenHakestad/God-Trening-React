@@ -108,14 +108,46 @@ app.get("/api/posts", async (req, res) => {
 	}
 });
 
-//Admin login
-app.post("/api/auth/login", (req, res) => {
+// Define route for deleting a post by ID
+app.delete("/api/posts/:id", async (req, res) => {
+	const postId = req.params.id;
+
+	try {
+		const deletedPost = await MediaPost.findByIdAndDelete(postId);
+		if (!deletedPost) {
+			return res.status(404).send({ message: "Post not found" });
+		}
+		res
+			.status(200)
+			.send({ message: "Post deleted successfully", post: deletedPost });
+	} catch (err) {
+		res.status(500).send({ message: "Error deleting post", error: err });
+	}
+});
+
+// //Admin login
+// app.post("/api/auth/login", (req, res) => {
+// 	const { username, password } = req.body;
+
+// 	if (username === adminUsername && password === adminPassword) {
+// 		const token = jwt.sign({ username }, jwtSecret, {
+// 			expiresIn: "1h",
+// 		});
+// 		return res.json({ token });
+// 	} else {
+// 		return res.status(400).json({ msg: "Invalid credentials" });
+// 	}
+// });
+
+app.post("/api/auth/login", async (req, res) => {
 	const { username, password } = req.body;
 
 	if (username === adminUsername && password === adminPassword) {
-		const token = jwt.sign({ username }, jwtSecret, {
-			expiresIn: "1h",
-		});
+		const token = jwt.sign({ username }, jwtSecret, { expiresIn: "1h" });
+
+		// Log the admin login
+		console.log(`Admin logged in: ${username} at ${new Date().toISOString()}`);
+
 		return res.json({ token });
 	} else {
 		return res.status(400).json({ msg: "Invalid credentials" });

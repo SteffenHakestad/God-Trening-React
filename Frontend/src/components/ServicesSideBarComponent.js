@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesSideBar() {
-	const location = useLocation(); //Get current URL location for button style
+	const { t } = useTranslation();
+	const location = useLocation(); //Get current URL location for selected button style
 
 	const isHighlight = (path) => location.pathname === path;
 
@@ -10,14 +12,14 @@ export default function ServicesSideBar() {
 		<>
 			<div className="sidebar-container">
 				<div className="top-sidebar-container">
-					<h1 className="sidebar-header">Tjenester</h1>
+					<h1 className="sidebar-header">{t("services")}</h1>
 					<div className="horizontal-sidebar-container">
 						<Link to="/presentation">
 							<button
 								className={`sidebar-btn ${
 									isHighlight("/presentation") ? "highlight" : ""
 								}`}>
-								Foredrag
+								{t("services")}
 								<svg
 									width="40"
 									height="40"
@@ -35,7 +37,7 @@ export default function ServicesSideBar() {
 								className={`sidebar-btn ${
 									isHighlight("/course") ? "highlight" : ""
 								}`}>
-								Kurs
+								{t("course")}
 								<svg
 									width="40"
 									height="40"
@@ -53,7 +55,7 @@ export default function ServicesSideBar() {
 								className={`sidebar-btn ${
 									isHighlight("/consultant") ? "highlight" : ""
 								}`}>
-								Konsulenttjenester
+								{t("consultant")}
 								<svg
 									width="40"
 									height="40"
@@ -71,7 +73,7 @@ export default function ServicesSideBar() {
 								className={`sidebar-btn ${
 									isHighlight("/dieting") ? "highlight" : ""
 								}`}>
-								Kostveileding
+								{t("diet-guidance")}
 								<svg
 									width="40"
 									height="40"
@@ -85,8 +87,9 @@ export default function ServicesSideBar() {
 					</div>
 				</div>
 				<div className="bottom-sidebar-container">
-					<h1 className="sidebar-header">Tjenester</h1>
-					<div>Du kan bestille følgende tjeneste ved å ta kontakt på:</div>
+					<h1 className="sidebar-header">{t("services")}</h1>
+					<div>{t("order-services")}</div>
+
 					<div className="service-contact-container">
 						<img alt="phone icon" src="/assets/icons/icon-phone.svg"></img>
 						<div>922 26 557</div>

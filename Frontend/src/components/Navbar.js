@@ -1,48 +1,52 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useAuth } from "../components/AuthContext";
 
 function CustomLink({ to, children, t, ...props }) {
-  const resolvedPath = useResolvedPath(to);
-  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
-  return (
-    <li className={isActive ? "active" : ""}>
-      <Link to={to} {...props}>
-        {children}
-      </Link>
-    </li>
-  );
+	const resolvedPath = useResolvedPath(to);
+	const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+	return (
+		<li className={isActive ? "active" : ""}>
+			<Link to={to} {...props}>
+				{children}
+			</Link>
+		</li>
+	);
 }
 
 export default function Navbar() {
-  return (
-    <nav id="navbar">
-      {/*Links to home page from logo*/}
-      <Link to="/home" id="navbar-title">
-        <img
-          alt="navbar title"
-          src="/assets/images/GT-logo.png"
-          className="navbar-logo-img"
-        ></img>
-      </Link>
+	const { isLoggedIn } = useAuth();
+	const { t } = useTranslation();
 
-      {/*Links from navbar to all pages on app*/}
-      <ul className="navbar-link-list">
-        <CustomLink to="/services" className="navbar-link">
-          Tjenester
-        </CustomLink>
-        <CustomLink to="/media" className="navbar-link">
-          Media
-        </CustomLink>
-        <CustomLink to="/contact" className="navbar-link">
-          Kontakt
-        </CustomLink>
-        <CustomLink to="/GTadmin" className="navbar-link">
-          Temp Admin*
-        </CustomLink>
-      </ul>
-    </nav>
-  );
+	return (
+		<nav id="navbar">
+			{/*Links to home page from logo*/}
+			<Link to="/home" id="navbar-title">
+				<img
+					alt="navbar title"
+					src="/assets/images/GT-logo.png"
+					className="navbar-logo-img"></img>
+			</Link>
+			{/*Links from navbar to all pages on app*/}
+			<ul className="navbar-link-list">
+				<CustomLink to="/services" className="navbar-link">
+					{t("services")}
+				</CustomLink>
+				<CustomLink to="/media" className="navbar-link">
+					{t("media")}
+				</CustomLink>
+				<CustomLink to="/contact" className="navbar-link">
+					{t("contact")}
+				</CustomLink>
+				{isLoggedIn && (
+					<CustomLink to="/GTadmin" className="navbar-link">
+						Admin
+					</CustomLink>
+				)}
+			</ul>
+		</nav>
+	);
 }
-
 // function CustomLink({ to, children, t, ...props }) {
 // 	const resolvedPath = useResolvedPath(to);
 // 	const isActive = useMatch({ path: resolvedPath.pathname, end: true });

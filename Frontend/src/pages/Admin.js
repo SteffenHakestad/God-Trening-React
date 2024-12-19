@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
+import { useAuth } from "../components/AuthContext";
 import AdminLoginComponent from "../components/admin/AdminLoginComponent";
 import AdminDashboardComponent from "../components/admin/AdminDashboardComponent";
 import Header from "../components/Header";
+import { useTranslation } from "react-i18next";
 
 import axios from "axios";
 
 export default function Admin() {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+	const { t } = useTranslation();
+	const [isInvalidPopup, setInvalidPopup] = useState(false);
 
+	// Handle popup overlay
+	const handlePopup = () => {
+		if (isInvalidPopup === true) {
+			setInvalidPopup(false);
+		} else if (isInvalidPopup === false) {
+			setInvalidPopup(true);
+		}
+	};
+
+	const { isLoggedIn, setIsLoggedIn } = useAuth();
 	const handleLogin = async (username, password) => {
 		try {
 			const SERVER_IP = process.env.SERVER_IP || "localhost";
@@ -18,7 +31,8 @@ export default function Admin() {
 			localStorage.setItem("token", res.data.token);
 			setIsLoggedIn(true);
 		} catch (error) {
-			alert("Invalid credentials");
+			handlePopup();
+			console.log("Invalid login credenticals" + error);
 		}
 	};
 
@@ -38,6 +52,31 @@ export default function Admin() {
 				<AdminDashboardComponent />
 			) : (
 				<AdminLoginComponent onLogin={handleLogin} />
+			)}
+
+			{/*Invalid credenticals popup */}
+			{isInvalidPopup && (
+				<div
+					className="success-failure-popup-overlay"
+					onClick={() => handlePopup()}>
+					<div className="success-failure-container">
+						<div className="close-success-failure-popup-btn-container">
+							<button
+								className="close-success-failure-popup-btn"
+								onClick={() => handlePopup()}>
+								<img
+									className="close-popup-icon"
+									src={process.env.PUBLIC_URL + "/assets/icons/icon-x.svg"}
+									alt="Exit-Icon"
+								/>
+							</button>
+						</div>
+						<p>{t("invalid-credentials")}</p>
+						<button className="std-btn" onClick={() => handlePopup()}>
+							{t("back")}
+						</button>
+					</div>
+				</div>
 			)}
 		</>
 	);

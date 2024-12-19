@@ -1,19 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesComponent() {
+	const { t } = useTranslation();
+
 	return (
 		<>
 			<div className="about-outer-container">
 				<div className="about-inner-container">
 					<div className="about-text-container">
-						<h1>Guri Brekke</h1>
-						<p>
-							"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-							varius luctus dignissim. Mauris vehicula erat id orci faucibus,
-							acq porttitor mauris accumsan. Quisque tellus est, pellentesque ut
-							ornare quis, posuere ornare massa. Suspendisse quis orci
-							hendrerit."
-						</p>
+						<h1>{t("about-guri")}</h1>
+						<p>{t("about-text")}</p>
 					</div>
 					<div className="about-image-container">
 						<div className="image-shell">
